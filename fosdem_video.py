@@ -1,13 +1,17 @@
-import contextlib
-from icalendar import Calendar
 import argparse
-import requests
+import contextlib
+import logging
+from concurrent.futures import ThreadPoolExecutor
 from os import path, remove
 from pathlib import Path
-from concurrent.futures import ThreadPoolExecutor
-from urllib.parse import urlparse
+from sys import stdout
 from typing import List, NamedTuple
 from urllib.parse import urlparse
+
+import requests
+from icalendar import Calendar
+
+logger = logging.getLogger(__name__)
 
 
 class Talk(NamedTuple):
@@ -52,22 +56,22 @@ def parse_ics_file(ics_path: str) -> List[Talk]:
 
 def download_video(url: str, output_path: Path) -> bool:
     try:
-        print(f"Starting download: {output_path.name}")
+        logger.info("Starting download: %s", output_path.name)
         response = requests.get(url, stream=True)
         response.raise_for_status()
 
         total_size = int(response.headers.get("content-length", 0))
-        print(f"{output_path.name} is {total_size} MB")
+        logging.debug("%s is %d MB", output_path.name, total_size)
         block_size = 1024 * 1024  # 1MB chunks
 
         with open(output_path, "wb") as f:
             for chunk in response.iter_content(block_size):
                 f.write(chunk)
 
-        print(f"Downloaded {output_path.name}")
+        logger.info("Downloaded %s", output_path.name)
         return True
     except Exception as e:
-        print(f"Failed to download {url}: {str(e)}")
+        logger.error("Failed to download %s: %s", url, e)
         with contextlib.suppress(FileNotFoundError):
             # If something happened mid download we should remove the incomplete file
             remove(output_path)
@@ -87,7 +91,7 @@ def download_fosdem_videos(
         video_folder.mkdir(exist_ok=True)
         file_path = Path(f"{video_folder}/{talk.id}.mp4")
         if path.exists(file_path):
-            print(f"skipping {talk.id} as the file already exists")
+            logger.debug("skipping %s as the file already exists", talk.id)
             return True
 
         return download_video(talk.url, file_path)
@@ -124,6 +128,13 @@ def parse_arguments():
         "--dry-run", action="store_true", help="Print video URLs without downloading"
     )
 
+    parser.add_argument(
+        "--log-level",
+        default="INFO",
+        choices=["CRITICAL", "ERROR", "WARNING", "INFO", "DEBUG"],
+        help="Set the logging output level",
+    )
+
     args = parser.parse_args()
 
     # Validate the ICS file exists
@@ -135,13 +146,17 @@ def parse_arguments():
 
 def main():
     args = parse_arguments()
-    print(f"Parsing ICS file {args.ics_file}")
+    logging.basicConfig(
+        level=getattr(logging, args.log_level),
+        format="%(asctime)s - %(levelname)s: %(message)s",
+        datefmt="%Y-%m-%dT%H:%M:%S",
+    )
+    logger.info("Parsing ICS file %s", args.ics_file)
     talks = parse_ics_file(args.ics_file)
-    print(f"Found {len(talks)} videos to download")
+    logging.info("Found %s videos to download", len(talks))
     if args.dry_run:
-        print("List of talks videos:")
-        for talk in talks:
-            print(talk.url)
+        urls = "\n".join([f"  - {talk.url}" for talk in talks])
+        stdout.write(f"List of talks videos: \n{urls}\n")
         return
     results = download_fosdem_videos(
         talks,
@@ -149,7 +164,7 @@ def main():
         num_workers=args.workers,
     )
     succesful = len([r for r in results if r])
-    print(f"downloaded {succesful} of {len(talks)} talks")
+    logging.info("Downloaded %s of %s talks", succesful, len(talks))
 
 
 if __name__ == "__main__":
