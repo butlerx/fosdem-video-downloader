@@ -87,9 +87,10 @@ def download_fosdem_videos(
         video_folder.mkdir(exist_ok=True)
         file_path = Path(f"{video_folder}/{talk.id}.mp4")
         if path.exists(file_path):
+            print(f"skipping {talk.id} as the file already exists")
             return True
 
-        return download_video(talk.url, file_path, dry_run)
+        return download_video(talk.url, file_path)
 
     with ThreadPoolExecutor(max_workers=num_workers) as executor:
         results = list(executor.map(process_video, talks))
@@ -142,11 +143,13 @@ def main():
         for talk in talks:
             print(talk.url)
         return
-    download_fosdem_videos(
+    results = download_fosdem_videos(
         talks,
         output_dir=args.output_dir,
         num_workers=args.workers,
     )
+    succesful = len([r for r in results if r])
+    print(f"downloaded {succesful} of {len(talks)} talks")
 
 
 if __name__ == "__main__":
