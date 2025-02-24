@@ -78,22 +78,30 @@ def download_video(url: str, output_path: Path) -> bool:
         return False
 
 
+def is_downloaded(output_dir: str, talk: Talk) -> bool:
+    file_path = Path(f"{output_dir}/{talk.year}/{talk.id}.mp4")
+    if path.exists(file_path):
+        logger.debug("skipping %s as the file already exists", talk.id)
+        return True
+    return False
+
+
+def create_dirs(output_dir: str, talks: List[Talk]) -> None:
+    output_path = Path(output_dir)
+    output_path.mkdir(exist_ok=True)
+    years = set([talk.year for talk in talks])
+    for year in years:
+        video_folder = Path(f"{output_dir}/{year}")
+        video_folder.mkdir(exist_ok=True)
+
+
 def download_fosdem_videos(
     talks: List[Talk],
     output_dir: str = "fosdem_videos",
     num_workers: int = 3,
-):
-    output_path = Path(output_dir)
-    output_path.mkdir(exist_ok=True)
-
+) -> List[bool]:
     def process_video(talk: Talk) -> bool:
-        video_folder = Path(f"{output_dir}/{talk.year}")
-        video_folder.mkdir(exist_ok=True)
-        file_path = Path(f"{video_folder}/{talk.id}.mp4")
-        if path.exists(file_path):
-            logger.debug("skipping %s as the file already exists", talk.id)
-            return True
-
+        file_path = Path(f"{output_dir}/{talk.year}/{talk.id}.mp4")
         return download_video(talk.url, file_path)
 
     with ThreadPoolExecutor(max_workers=num_workers) as executor:
@@ -153,6 +161,8 @@ def main():
     )
     logger.info("Parsing ICS file %s", args.ics_file)
     talks = parse_ics_file(args.ics_file)
+    logging.info("Found %s talks in Calendar", len(talks))
+    talks = [talk for talk in talks if not is_downloaded(args.output_dir, talk)]
     logging.info("Found %s videos to download", len(talks))
     if args.dry_run:
         urls = "\n".join([f"  - {talk.url}" for talk in talks])
