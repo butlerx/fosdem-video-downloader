@@ -1,11 +1,14 @@
+"""Download FOSDEM videos based on the ICS schedule file."""
+
+from __future__ import annotations
+
 import argparse
 import contextlib
 import logging
 from concurrent.futures import ThreadPoolExecutor
-from os import path, remove
 from pathlib import Path
 from sys import stdout
-from typing import List, NamedTuple
+from typing import NamedTuple
 from urllib.parse import urlparse
 
 import requests
@@ -15,12 +18,15 @@ logger = logging.getLogger(__name__)
 
 
 class Talk(NamedTuple):
+    """Represent a FOSDEM talk video."""
+
     url: str
     year: str
     id: str
 
 
 def get_path_elements(url: str) -> tuple[str, str]:
+    """Extract year and talk ID from the URL path."""
     parsed = urlparse(url)
     path_parts = [p for p in parsed.path.split("/") if p]
 
@@ -30,9 +36,9 @@ def get_path_elements(url: str) -> tuple[str, str]:
     return (path_parts[0], path_parts[-1])
 
 
-def parse_ics_file(ics_path: str) -> List[Talk]:
-    """Extract video information from ICS file"""
-    with open(ics_path, "rb") as f:
+def parse_ics_file(ics_path: str) -> list[Talk]:
+    """Extract video information from ICS file."""
+    with Path(ics_path).open("wb") as f:
         cal = Calendar.from_ical(f.read())
 
     talks = []
@@ -55,70 +61,72 @@ def parse_ics_file(ics_path: str) -> List[Talk]:
 
 
 def download_video(url: str, output_path: Path) -> bool:
+    """Download a video from a URL to the specified output path."""
     try:
         logger.info("Starting download: %s", output_path.name)
-        response = requests.get(url, stream=True)
+        response = requests.get(url, stream=True, timeout=10)
         response.raise_for_status()
 
         total_size = int(response.headers.get("content-length", 0))
-        logging.debug("%s is %d MB", output_path.name, total_size)
+        logger.debug("%s is %d MB", output_path.name, total_size)
         block_size = 1024 * 1024  # 1MB chunks
 
-        with open(output_path, "wb") as f:
-            for chunk in response.iter_content(block_size):
-                f.write(chunk)
+        with output_path.open("wb") as f:
+            f.writelines(response.iter_content(block_size))
 
         logger.info("Downloaded %s", output_path.name)
-        return True
-    except Exception as e:
-        logger.error("Failed to download %s: %s", url, e)
+    except Exception:
+        logger.exception("Failed to download %s", url)
         with contextlib.suppress(FileNotFoundError):
             # If something happened mid download we should remove the incomplete file
-            remove(output_path)
+            output_path.unlink()
         return False
+
+    return True
 
 
 def is_downloaded(output_dir: str, talk: Talk) -> bool:
+    """Check if the video file already exists."""
     file_path = Path(f"{output_dir}/{talk.year}/{talk.id}.mp4")
-    if path.exists(file_path):
+    if file_path.exists():
         logger.debug("skipping %s as the file already exists", talk.id)
         return True
     return False
 
 
-def create_dirs(output_dir: str, talks: List[Talk]) -> None:
+def create_dirs(output_dir: str, talks: list[Talk]) -> None:
+    """Create output directories for each year."""
     output_path = Path(output_dir)
     output_path.mkdir(exist_ok=True)
-    years = set([talk.year for talk in talks])
+    years = {talk.year for talk in talks}
     for year in years:
         video_folder = Path(f"{output_dir}/{year}")
         video_folder.mkdir(exist_ok=True)
 
 
 def download_fosdem_videos(
-    talks: List[Talk],
+    talks: list[Talk],
     output_dir: str = "fosdem_videos",
     num_workers: int = 3,
-) -> List[bool]:
+) -> list[bool]:
+    """Download FOSDEM videos concurrently."""
+
     def process_video(talk: Talk) -> bool:
         file_path = Path(f"{output_dir}/{talk.year}/{talk.id}.mp4")
         return download_video(talk.url, file_path)
 
     with ThreadPoolExecutor(max_workers=num_workers) as executor:
-        results = list(executor.map(process_video, talks))
-
-    return results
+        return list(executor.map(process_video, talks))
 
 
-def parse_arguments():
+def parse_arguments() -> argparse.Namespace:
+    """Parse command-line arguments for the FOSDEM video downloader script."""
     parser = argparse.ArgumentParser(
         description="Download FOSDEM videos from ICS schedule",
         formatter_class=argparse.ArgumentDefaultsHelpFormatter,
     )
 
-    parser.add_argument(
-        "ics_file", type=Path, help="Path to the FOSDEM schedule ICS file"
-    )
+    parser.add_argument("ics_file", type=Path, help="Path to the FOSDEM schedule ICS file")
 
     parser.add_argument(
         "-o",
@@ -128,13 +136,9 @@ def parse_arguments():
         help="Directory to save downloaded videos",
     )
 
-    parser.add_argument(
-        "-w", "--workers", type=int, default=3, help="Number of concurrent downloads"
-    )
+    parser.add_argument("-w", "--workers", type=int, default=3, help="Number of concurrent downloads")
 
-    parser.add_argument(
-        "--dry-run", action="store_true", help="Print video URLs without downloading"
-    )
+    parser.add_argument("--dry-run", action="store_true", help="Print video URLs without downloading")
 
     parser.add_argument(
         "--log-level",
@@ -152,7 +156,8 @@ def parse_arguments():
     return args
 
 
-def main():
+def main() -> None:
+    """Run the FOSDEM video downloader script."""
     args = parse_arguments()
     logging.basicConfig(
         level=getattr(logging, args.log_level),
@@ -161,9 +166,9 @@ def main():
     )
     logger.info("Parsing ICS file %s", args.ics_file)
     talks = parse_ics_file(args.ics_file)
-    logging.info("Found %s talks in Calendar", len(talks))
+    logger.info("Found %s talks in Calendar", len(talks))
     talks = [talk for talk in talks if not is_downloaded(args.output_dir, talk)]
-    logging.info("Found %s videos to download", len(talks))
+    logger.info("Found %s videos to download", len(talks))
     if args.dry_run:
         urls = "\n".join([f"  - {talk.url}" for talk in talks])
         stdout.write(f"List of talks videos: \n{urls}\n")
@@ -174,7 +179,7 @@ def main():
         num_workers=args.workers,
     )
     succesful = len([r for r in results if r])
-    logging.info("Downloaded %s of %s talks", succesful, len(talks))
+    logger.info("Downloaded %s of %s talks", succesful, len(talks))
 
 
 if __name__ == "__main__":

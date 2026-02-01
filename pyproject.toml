@@ -1,0 +1,49 @@
+[project]
+name = "fosdem-video-downloader"
+version = "0.1.0"
+description = "A tool to download videos from FOSDEM."
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+  "icalendar>=5.0.0",
+  "requests>=2.31.0",
+  "python-dateutil>=2.8.2",
+]
+
+[dependency-groups]
+dev = [{ include-group = "lint" }, { include-group = "typing" }]
+lint = ["black>=24.9.0", "isort>=5.12.0", "ruff>=0.11.10"]
+typing = [
+  "ty>=0.0.14",
+  "types-requests>=2.31.0",
+  "types-python-dateutil>=2.8.19",
+]
+
+[tool.black]
+line-length = 90
+
+[tool.isort]
+line_length = 90
+profile = "black"
+
+[tool.ty.rules]
+possibly-missing-import = "error"
+unused-ignore-comment = "warn"
+
+[tool.ruff]
+line-length = 110
+
+[tool.ruff.lint]
+select = ["ALL"]
+ignore = [
+  "COM812",
+  "D203",   # 1 blank line required before class docstring
+  "D205",   # 1 blank line required between summary line and description
+  "D212",   # Multi-line docstring summary should start at the first line
+  "FIX002", # Line contains TODO, consider resolving or converting to issue
+  "TD003",  # Missing issue link on TODO comment
+  "TRY003", # Avoid specifying long messages outside exception class - acceptable for CLI
+]
+
+[tool.ruff.lint.isort]
+combine-as-imports = true
