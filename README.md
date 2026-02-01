@@ -32,13 +32,13 @@ The CLI is exposed via the package entry point.
 Basic usage:
 
 ```bash
-uv run fosdem-video-downloader bookmarks.ics
+uv run python fosdem_video.py bookmarks.ics
 ```
 
 Advanced options (example):
 
 ```bash
-uv run fosdem-video-downloader bookmarks.ics \
+uv run python fosdem_video.py bookmarks.ics \
   --output-dir ~/videos/fosdem \
   --workers 4
 ```

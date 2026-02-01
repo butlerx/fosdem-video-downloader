@@ -38,8 +38,15 @@ def get_path_elements(url: str) -> tuple[str, str]:
 
 def parse_ics_file(ics_path: str) -> list[Talk]:
     """Extract video information from ICS file."""
-    with Path(ics_path).open("wb") as f:
-        cal = Calendar.from_ical(f.read())
+    path = Path(f"./{ics_path}")
+    if not path.exists() or path.stat().st_size == 0:
+        raise ValueError(f"Invalid ICS file: {path} (missing or empty)")
+
+    with path.open("rb") as f:
+        content = f.read().strip()
+        if not content:
+            raise ValueError("ICS content is empty after stripping")
+        cal = Calendar.from_ical(content)
 
     talks = []
     for event in cal.walk("vevent"):
@@ -65,7 +72,11 @@ def download_video(url: str, output_path: Path) -> bool:
     try:
         logger.info("Starting download: %s", output_path.name)
         response = requests.get(url, stream=True, timeout=10)
-        response.raise_for_status()
+        if response.status_code == 404:
+            logger.warning("Video not found (404): %s", url)
+            return False
+        elif response.status_code != 200:
+            response.raise_for_status()
 
         total_size = int(response.headers.get("content-length", 0))
         logger.debug("%s is %d MB", output_path.name, total_size)
@@ -75,7 +86,7 @@ def download_video(url: str, output_path: Path) -> bool:
             f.writelines(response.iter_content(block_size))
 
         logger.info("Downloaded %s", output_path.name)
-    except Exception:
+    except Exception as e:
         logger.exception("Failed to download %s", url)
         with contextlib.suppress(FileNotFoundError):
             # If something happened mid download we should remove the incomplete file
@@ -132,7 +143,7 @@ def parse_arguments() -> argparse.Namespace:
         "-o",
         "--output-dir",
         type=Path,
-        default=Path("fosdem_videos"),
+        default=Path("./fosdem_videos"),
         help="Directory to save downloaded videos",
     )
 
@@ -173,6 +184,7 @@ def main() -> None:
         urls = "\n".join([f"  - {talk.url}" for talk in talks])
         stdout.write(f"List of talks videos: \n{urls}\n")
         return
+    create_dirs(args.output_dir, talks)
     results = download_fosdem_videos(
         talks,
         output_dir=args.output_dir,
