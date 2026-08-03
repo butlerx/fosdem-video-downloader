@@ -1,6 +1,6 @@
 # FOSDEM Video Downloader
 
-A Python tool to download FOSDEM conference videos from an ICS schedule file. It
+A Rust CLI to download FOSDEM conference videos from an ICS schedule file. It
 is designed to work with the ICS export of bookmarked talks from the
 [FOSDEM mobile app](https://github.com/cbeyls/fosdem-companion-android).
 
@@ -13,17 +13,17 @@ is designed to work with the ICS export of bookmarked talks from the
 
 ## Installation
 
-This project uses [uv](https://github.com/astral-sh/uv) for dependency and
-environment management.
+This project uses [Cargo](https://doc.rust-lang.org/cargo/) for dependency and
+build management. Install Rust with [rustup](https://rustup.rs/) if necessary.
 
 ```bash
 git clone https://github.com/butlerx/fosdem-video-downloader.git
 cd fosdem-video-downloader
 
-uv sync
+cargo build --release
 ```
 
-This will create a virtual environment and install all dependencies.
+The compiled binary will be at `target/release/fosdem-video-downloader`.
 
 ## Usage
 
@@ -32,13 +32,13 @@ The CLI is exposed via the package entry point.
 Basic usage:
 
 ```bash
-uv run python fosdem_video.py bookmarks.ics
+cargo run -- bookmarks.ics
 ```
 
 Advanced options (example):
 
 ```bash
-uv run python fosdem_video.py bookmarks.ics \
+cargo run -- bookmarks.ics \
   --output-dir ~/videos/fosdem \
   --workers 4
 ```
@@ -50,6 +50,8 @@ uv run python fosdem_video.py bookmarks.ics \
   `fosdem_videos`)
 - `-w, --workers`: Number of concurrent downloads (default: `3`)
 - `--dry-run`: Print video URLs without downloading
+- `--log-level`: Set logging verbosity: `CRITICAL`, `ERROR`, `WARNING`,
+  `INFO`, or `DEBUG` (default: `INFO`)
 
 ## Getting Your Bookmarks
 
@@ -59,18 +61,27 @@ uv run python fosdem_video.py bookmarks.ics \
 
 ## Development
 
-Install development dependencies:
+Run the tests and formatting checks:
 
 ```bash
-uv sync --group dev
+cargo test
+cargo fmt --check
 ```
 
-Run type checking and linting:
+## Releases
+
+Pushing a version tag creates a GitHub Release and publishes the matching crate
+to crates.io using [trusted publishing](https://crates.io/docs/trusted-publishing).
+Before the first automated release, publish the crate once manually, then add a
+trusted publisher in its crates.io settings for this repository and
+`.github/workflows/release.yml`.
+
+The tag must use the `vX.Y.Z` form and exactly match the `version` in
+`Cargo.toml`:
 
 ```bash
-uv run ty check
-uv run ruff check --fix
-uv run ruff format
+git tag v0.1.0
+git push origin v0.1.0
 ```
 
 ## License
