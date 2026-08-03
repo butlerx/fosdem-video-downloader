@@ -1,5 +1,6 @@
 fosdem_videos
 *.ics
+!tests/fixtures/*.ics
 # Created by https://www.toptal.com/developers/gitignore/api/python,vim,osx,rust
 # Edit at https://www.toptal.com/developers/gitignore?templates=python,vim,osx,rust
 

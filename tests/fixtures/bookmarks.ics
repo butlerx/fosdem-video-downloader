@@ -1,0 +1,994 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//be.digitalia.fosdem//NONSGML 2.3.0//EN
+BEGIN:VEVENT
+UID:8376@2026@be.digitalia.fosdem
+DTSTAMP:20260201T185751Z
+DTSTART:20260131T083000Z
+DTEND:20260131T085000Z
+SUMMARY:Welcome to FOSDEM 2026
+DESCRIPTION:FOSDEM welcome and opening talk.
+X-ALT-DESC:<p>FOSDEM welcome and opening talk.</p>
+CLASS:PUBLIC
+URL:https://fosdem.org/2026/schedule/event/SFKNTZ-welcome_to_fosdem_2026/
+LOCATION:Janson
+ATTENDEE;CUTYPE=INDIVIDUAL;ROLE=CHAIR;PARTSTAT=ACCEPTED;CN="FOSDEM Staff":https://fosdem.org/2026/schedule/speakers/#FOSDEM+Staff
+ATTENDEE;CUTYPE=INDIVIDUAL;ROLE=CHAIR;PARTSTAT=ACCEPTED;CN="Richard RichiH Hartmann":https://fosdem.org/2026/schedule/speakers/#Richard+%22RichiH%22+Hartmann
+END:VEVENT
+BEGIN:VEVENT
+UID:7886@2026@be.digitalia.fosdem
+DTSTAMP:20260201T185751Z
+DTSTART:20260131T090000Z
+DTEND:20260131T095000Z
+SUMMARY:FOSS in times of war, scarcity and (adversarial) AI
+DESCRIPTION:We need to talk about war. And we need to talk about companies building bots that propose to rewrite our source code. And about the people behind both, and how we preserve what is great about FOSS while avoiding disruption. How do geopolitical conflicts on the one hand and the risk of bot-generated (adversarial) code on the other influence the global community working together on Free and Open Source software?
+ The immense corpus of free and open source software created by a global community of researchers and engineers, developers, architects and designers is an impressive achievement of human collaboration at an unprecedented scale. An even bigger circle of users, translators, writers, creatives, civil society advocates, public servants and private sector stakeholders has helped to further develop and spread this technological Gesamtkunstwerk far and wide - with the help of the internet and the web. With individual freedoms and user empowerment at its center, these jointly created digital public goods have removed many economic and societal barriers for a large part of the world's population. Users are not just allowed to benefit from technology, but each and every user can in principle actively help shape it. On top of the FOSS ecosystem our global economy has been propelled to unprecedented levels.
+ Much of this incredible growth was achieved within a (relatively) calm geopolitical situation, in the wake of the cold war which ended in the very same year that also saw the genesis of the World Wide Web at CERN in Switzerland. Economists, philosophers and other observers at the time spoke of the 'end of history' and expected no more big conflicts at the superpower level. We could now globalise the economy and all work together. The flood of innovation taking place all around us promised a bright future for all, with room for altruism and collaboration. In retrospect it certainly was an ideal situation for an optimistic and constructive global movement like the FOSS community to take over the helm.
+ But apart from the fact that under the surface that narrative was already flawed (with some actors like the USA having a double agenda, as the Snowden and Shadowbrokers revelations exposed) history didn't end. To some ironic extent we are now becoming victim of our own success. In recent years we've seen geopolitical stability punctured by war effort levering low cost technology that includes heaps of FOSS. Social media powered by FOSS infrastructure promote disinformation and have successfully stirred large scale polarisation. Within some of the largest and most populous countries on the planet authoritarian regimes have successfully used technology to break oppression in a new race towards totalitarianism. While for instance Europe has tried to regulate 'dual use' technology, "any use" technology (which our libre licenses guarantee) has escaped our attention. Even in countries which had stable non-authoritarian regimes there is a visible technology-assisted relapse towards anti-democratic movements. On the back of a tech stack which consists of FOSS with a thin crust of proprietary special sauce, unprecedented private capital (sometimes referred to as 'hypercapitalism') is interfering with global politics at an alarming rate. Apart from the direct democratic disbalance the resulting oligarchy is giving rise to overt nepotism, corruption and a new global protectorate for predatory business models and unethical extractive behaviour. Expecting peace in cyberspace any time soon is probably naive, and free and open source technology stands to make up for a significant part of the battleground.
+ At the same time we are facing other challenges, such as climate change and an imminent scarcity of non-renewable resources. We have more people living on the surface of the planet than ever before, and they are consuming more raw materials and more energy than ever. This won't go on indefinitely. And right at that point we see an army of next generation Trojan horses galloping through the gates of our global commons villages, accelerating our use of both. Generative pre-trained transformers (also known as Large Language Models) kindly offer to take cumbersome and boring coding work off our hands. They can liberate us from responsibility and allow us to do other things or move even faster.
+ But is it really wise to accept this apparent gift, or should we be a little more suspicious? Just as it has proven way too easy for AI to poison the web with fake content, our software supply chain is vulnerable to manipulation. The attack surface is immense. Due to the inherent complexity of software it is easier to achieve and harder to detect manipulation before it is too late. While many talented and committed people have spent years reverse engineering binary blobs to avoid the associated risks, those blobs were at least isolated and clearly marked. AI is the ultimate black box and it introduces significantly more uncertainty: it rewrites the truth from the inside.
+ AI in its current form has no actual sense of truth or ethics. Like with Russian roulette, once in a while the models completely bork up and create phantom code and real risk - and that is even in a best case scenario, without assuming malicious intent and manipulation from the outside. In an adversarial scenario (and this adversity can come from traditional nation state actors with non-aligned interests but also from corporate or even private individuals with some determination - like Cambridge Analytica illustrated so vividly) manipulation only requires subtle changes. At the frantic scale at which any available learning content is ingested from the internet these days one can expect targeted adversarial training to manipulate specific code with subtle triggers to go unnoticed.
+ As a community we have spent billions of hours of careful coding and software engineering to make free and open source technology as trustworthy as it is today. Geopolitical conflict is an incentive to hollow out that trust. AI is an additional leap of faith, and if you look at the forces driving its adoption and their interests, are we really sure those black boxes are safe to invite into our trusted coding base? It is clear that the end game of AI coding is not a healthy FOSS ecosystem, but its total displacement. The threat of machine crafted and man-crafted malicious code in war-time FOSS are equally realistic. Perhaps we can find a middle ground, where we combine some of AI and human skill - and add enough checks and balances, and a variety of assurances through compartementalisation, formal and symbolical proofs and other traditional means of quality assurance.
+ This talk is an open exploration of some of the challenges the FOSS community will have in the years ahead, working towards a hopeful notion of maximal defendable FOSS.
+X-ALT-DESC:<p>We need to talk about war. And we need to talk about companies building bots that propose to rewrite our source code. And about the people behind both, and how we preserve what is great about FOSS while avoiding disruption. How do geopolitical conflicts on the one hand and the risk of bot-generated (adversarial) code on the other influence the global community working together on Free and Open Source software?</p>
+ <hr />
+ <p>The immense corpus of free and open source software created by a global community of researchers and engineers, developers, architects and designers is an impressive achievement of human collaboration at an unprecedented scale. An even bigger circle of users, translators, writers, creatives, civil society advocates, public servants and private sector stakeholders has helped to further develop and spread this technological Gesamtkunstwerk far and wide - with the help of the internet and the web. With individual freedoms and user empowerment at its center, these jointly created digital public goods have removed many economic and societal barriers for a large part of the world's population. Users are not just allowed to benefit from technology, but each and every user can in principle actively help shape it. On top of the FOSS ecosystem our global economy has been propelled to unprecedented levels.</p>
+ <p>Much of this incredible growth was achieved within a (relatively) calm geopolitical situation, in the wake of the cold war which ended in the very same year that also saw the genesis of the World Wide Web at CERN in Switzerland. Economists, philosophers and other observers at the time spoke of the 'end of history' and expected no more big conflicts at the superpower level. We could now globalise the economy and all work together. The flood of innovation taking place all around us promised a bright future for all, with room for altruism and collaboration. In retrospect it certainly was an ideal situation for an optimistic and constructive global movement like the FOSS community to take over the helm.</p>
+ <p>But apart from the fact that under the surface that narrative was already flawed (with some actors like the USA having a double agenda, as the Snowden and Shadowbrokers revelations exposed) history didn't end. To some ironic extent we are now becoming victim of our own success. In recent years we've seen geopolitical stability punctured by war effort levering low cost technology that includes heaps of FOSS. Social media powered by FOSS infrastructure promote disinformation and have successfully stirred large scale polarisation. Within some of the largest and most populous countries on the planet authoritarian regimes have successfully used technology to break oppression in a new race towards totalitarianism. While for instance Europe has tried to regulate 'dual use' technology, "any use" technology (which our libre licenses guarantee) has escaped our attention. Even in countries which had stable non-authoritarian regimes there is a visible technology-assisted relapse towards anti-democratic movements. On the back of a tech stack which consists of FOSS with a thin crust of proprietary special sauce, unprecedented private capital (sometimes referred to as 'hypercapitalism') is interfering with global politics at an alarming rate. Apart from the direct democratic disbalance the resulting oligarchy is giving rise to overt nepotism, corruption and a new global protectorate for predatory business models and unethical extractive behaviour. Expecting peace in cyberspace any time soon is probably naive, and free and open source technology stands to make up for a significant part of the battleground.</p>
+ <p>At the same time we are facing other challenges, such as climate change and an imminent scarcity of non-renewable resources. We have more people living on the surface of the planet than ever before, and they are consuming more raw materials and more energy than ever. This won't go on indefinitely. And right at that point we see an army of next generation Trojan horses galloping through the gates of our global commons villages, accelerating our use of both. Generative pre-trained transformers (also known as Large Language Models) kindly offer to take cumbersome and boring coding work off our hands. They can liberate us from responsibility and allow us to do other things or move even faster.</p>
+ <p>But is it really wise to accept this apparent gift, or should we be a little more suspicious? Just as it has proven way too easy for AI to poison the web with fake content, our software supply chain is vulnerable to manipulation. The attack surface is immense. Due to the inherent complexity of software it is easier to achieve and harder to detect manipulation before it is too late. While many talented and committed people have spent years reverse engineering binary blobs to avoid the associated risks, those blobs were at least isolated and clearly marked. AI is the ultimate black box and it introduces significantly more uncertainty: it rewrites the truth from the inside.</p>
+ <p>AI in its current form has no actual sense of truth or ethics. Like with Russian roulette, once in a while the models completely bork up and create phantom code and real risk - and that is even in a best case scenario, without assuming malicious intent and manipulation from the outside. In an adversarial scenario (and this adversity can come from traditional nation state actors with non-aligned interests but also from corporate or even private individuals with some determination - like Cambridge Analytica illustrated so vividly) manipulation only requires subtle changes. At the frantic scale at which any available learning content is ingested from the internet these days one can expect targeted adversarial training to manipulate specific code with subtle triggers to go unnoticed.</p>
+ <p>As a community we have spent billions of hours of careful coding and software engineering to make free and open source technology as trustworthy as it is today. Geopolitical conflict is an incentive to hollow out that trust. AI is an additional leap of faith, and if you look at the forces driving its adoption and their interests, are we really sure those black boxes are safe to invite into our trusted coding base? It is clear that the end game of AI coding is not a healthy FOSS ecosystem, but its total displacement. The threat of machine crafted and man-crafted malicious code in war-time FOSS are equally realistic. Perhaps we can find a middle ground, where we combine some of AI and human skill - and add enough checks and balances, and a variety of assurances through compartementalisation, formal and symbolical proofs and other traditional means of quality assurance.</p>
+ <p>This talk is an open exploration of some of the challenges the FOSS community will have in the years ahead, working towards a hopeful notion of maximal defendable FOSS.</p>
+CLASS:PUBLIC
+URL:https://fosdem.org/2026/schedule/event/FE7ULY-foss-in-times-of-war-scarcity-and-ai/
+LOCATION:Janson
+ATTENDEE;CUTYPE=INDIVIDUAL;ROLE=CHAIR;PARTSTAT=ACCEPTED;CN="Michiel Leenaars":https://fosdem.org/2026/schedule/speakers/#Michiel+Leenaars
+END:VEVENT
+BEGIN:VEVENT
+UID:7022@2026@be.digitalia.fosdem
+DTSTAMP:20260201T185751Z
+DTSTART:20260131T093000Z
+DTEND:20260131T095500Z
+SUMMARY:Wayland compositors for fun and profit
+DESCRIPTION:Linux desktop is moving to a new era, ditching complex software spaghetti with years of tech debt with… a protocol? That's it? And you expect some compositor projects replace the almighty X server? Replace just the X server? When the protocol's the limit, we can do far more and far more fun stuff!
+ We'll explore some more-or-less obscure uses for Wayland compositors and an embedded case study how simple task of porting DOOM to a router ended up with making it run basically all modern Linux desktop apps with it for free, with Rust.
+X-ALT-DESC:<p>Linux desktop is moving to a new era, ditching complex software spaghetti with years of tech debt with… a protocol? That's it? And you expect some compositor projects replace the almighty X server? Replace just the X server? When the protocol's the limit, we can do far more and far more fun stuff!</p>
+ <p>We'll explore some more-or-less obscure uses for Wayland compositors and an embedded case study how simple task of porting DOOM to a router ended up with making it run basically all modern Linux desktop apps with it for free, with Rust.</p>
+CLASS:PUBLIC
+URL:https://fosdem.org/2026/schedule/event/BTMDHW-wayland-is-fun/
+LOCATION:K.1.105 (La Fontaine)
+ATTENDEE;CUTYPE=INDIVIDUAL;ROLE=CHAIR;PARTSTAT=ACCEPTED;CN="Erin Kalousková":https://fosdem.org/2026/schedule/speakers/#Erin+Kalouskov%C3%A1
+END:VEVENT
+BEGIN:VEVENT
+UID:9761@2026@be.digitalia.fosdem
+DTSTAMP:20260201T185751Z
+DTSTART:20260131T093000Z
+DTEND:20260131T102000Z
+SUMMARY:PostgreSQL and MySQL, Two Databases, Three Perspectives
+DESCRIPTION:In this session, four seasoned database administrators with sound knowledge of both PostgreSQL and MySQL present an unbiased comparison of the two technologies. Attendees will learn about the architectural and DX differences between the world's two most popular databases.
+ Pep Pla, with his peculiar sense of humour, will open the session with a deep dive into the MVCC architectures between the two. The audience will learn why we need MVCC. Postgres and MySQL take very different approaches to implementation: Postgres relies on row versioning and vacuuming dead tuples, while MySQL does in-place changes and tracks versions with the undo log.
+ A broad-strokes overview from Ben Dicken, who has worked closely with both, will emphasize where ecosystem cross-pollination would help. This includes differences in table storage, bloat management, replication, and process-per-connection vs thread-per-connection architecture.
+ Postgres and MySQL take fundamentally different approaches to logical replication. Rohit Nayak and Shlomi Noach will examine how these designs affect WAL/binlog retention, backpressure, and CDC workloads, explore their failover implications, and highlight key feature-parity gaps between the two systems.
+X-ALT-DESC:<p>In this session, four seasoned database administrators with sound knowledge of both PostgreSQL and MySQL present an unbiased comparison of the two technologies. Attendees will learn about the architectural and DX differences between the world's two most popular databases.</p>
+ <p>Pep Pla, with his peculiar sense of humour, will open the session with a deep dive into the MVCC architectures between the two. The audience will learn why we need MVCC. Postgres and MySQL take very different approaches to implementation: Postgres relies on row versioning and vacuuming dead tuples, while MySQL does in-place changes and tracks versions with the undo log.</p>
+ <p>A broad-strokes overview from Ben Dicken, who has worked closely with both, will emphasize where ecosystem cross-pollination would help. This includes differences in table storage, bloat management, replication, and process-per-connection vs thread-per-connection architecture.</p>
+ <p>Postgres and MySQL take fundamentally different approaches to logical replication. Rohit Nayak and Shlomi Noach will examine how these designs affect WAL/binlog retention, backpressure, and CDC workloads, explore their failover implications, and highlight key feature-parity gaps between the two systems.</p>
+CLASS:PUBLIC
+URL:https://fosdem.org/2026/schedule/event/JWX9UM-postgres-mysql-two-databases-three-perspectives/
+LOCATION:UB2.252A (Lameere)
+ATTENDEE;CUTYPE=INDIVIDUAL;ROLE=CHAIR;PARTSTAT=ACCEPTED;CN="Rohit Nayak":https://fosdem.org/2026/schedule/speakers/#Rohit+Nayak
+ATTENDEE;CUTYPE=INDIVIDUAL;ROLE=CHAIR;PARTSTAT=ACCEPTED;CN="Shlomi Noach":https://fosdem.org/2026/schedule/speakers/#Shlomi+Noach
+ATTENDEE;CUTYPE=INDIVIDUAL;ROLE=CHAIR;PARTSTAT=ACCEPTED;CN="Ben Dicken":https://fosdem.org/2026/schedule/speakers/#Ben+Dicken
+ATTENDEE;CUTYPE=INDIVIDUAL;ROLE=CHAIR;PARTSTAT=ACCEPTED;CN="Pep Pla":https://fosdem.org/2026/schedule/speakers/#Pep+Pla
+END:VEVENT
+BEGIN:VEVENT
+UID:7207@2026@be.digitalia.fosdem
+DTSTAMP:20260201T185751Z
+DTSTART:20260131T100000Z
+DTEND:20260131T105000Z
+SUMMARY:Evolving Git for the next decade
+DESCRIPTION:In 2025, the Git project has turned 20 years old, and in these 20 years it has taken over the world of version control systems by storm: nowadays, almost every developer uses Git. But that doesn't mean that Git is perfect and "done", or even close to it. It still has many warts: user experience, arbitrary limitations, performance issues and no good support for large binary files are just some of the issues that users commonly complain about.
+ In this talk you'll learn what is happening in the Git project to address these issues. The talk will cover both recent additions to Git that make your life easier, as well as ongoing development that is expected to land in the not-too-distant future.
+X-ALT-DESC:<p>In 2025, the Git project has turned 20 years old, and in these 20 years it has taken over the world of version control systems by storm: nowadays, almost every developer uses Git. But that doesn't mean that Git is perfect and "done", or even close to it. It still has many warts: user experience, arbitrary limitations, performance issues and no good support for large binary files are just some of the issues that users commonly complain about.</p>
+ <p>In this talk you'll learn what is happening in the Git project to address these issues. The talk will cover both recent additions to Git that make your life easier, as well as ongoing development that is expected to land in the not-too-distant future.</p>
+CLASS:PUBLIC
+URL:https://fosdem.org/2026/schedule/event/HTJK33-evolving_git_for_the_next_decade/
+LOCATION:Janson
+ATTENDEE;CUTYPE=INDIVIDUAL;ROLE=CHAIR;PARTSTAT=ACCEPTED;CN="Patrick Steinhardt":https://fosdem.org/2026/schedule/speakers/#Patrick+Steinhardt
+END:VEVENT
+BEGIN:VEVENT
+UID:7807@2026@be.digitalia.fosdem
+DTSTAMP:20260201T185751Z
+DTSTART:20260131T100000Z
+DTEND:20260131T102500Z
+SUMMARY:Current state of attestations in programming language ecosystems
+DESCRIPTION:Over the past few years, npm, PyPI, RubyGems, and Maven Central have implemented attestations to provide build provenance: linking a package to its exact source code and build instructions. Some of these ecosystems also implemented publish/release attestations detailing exactly what files a specific version of a package should contain. These attestations are distributed as Sigstore bundles, so we'll start out by going over enough Sigstore to understand how to verify and get the attestation information from these bundles, the APIs to get these attestations for each ecosystem, and discuss the implementation tradeoffs made by each ecosystem, as well as alternatives for non-programming language ecosystems to consider.
+X-ALT-DESC:<p>Over the past few years, <a href="https://github.blog/security/supply-chain-security/introducing-npm-package-provenance/">npm</a>, <a href="https://blog.pypi.org/posts/2024-11-14-pypi-now-supports-digital-attestations/">PyPI</a>, <a href="https://github.com/ruby/rubygems/pull/8239">RubyGems</a>, and <a href="https://central.sonatype.org/news/20250128_sigstore_signature_validation_via_portal/">Maven Central</a> have implemented attestations to provide build provenance: linking a package to its exact source code and build instructions. Some of these ecosystems also implemented publish/release attestations detailing exactly what files a specific version of a package should contain. These attestations are distributed as Sigstore bundles, so we'll start out by going over enough <a href="https://www.sigstore.dev/how-it-works">Sigstore</a> to understand how to verify and get the attestation information from these bundles, the APIs to get these attestations for each ecosystem, and discuss the implementation tradeoffs made by each ecosystem, as well as alternatives for non-programming language ecosystems to consider.</p>
+CLASS:PUBLIC
+URL:https://fosdem.org/2026/schedule/event/BCFZP7-current-state-programming-language-attestations/
+LOCATION:K.3.201
+ATTENDEE;CUTYPE=INDIVIDUAL;ROLE=CHAIR;PARTSTAT=ACCEPTED;CN="Zach Steindler":https://fosdem.org/2026/schedule/speakers/#Zach+Steindler
+END:VEVENT
+BEGIN:VEVENT
+UID:9758@2026@be.digitalia.fosdem
+DTSTAMP:20260201T185751Z
+DTSTART:20260131T102500Z
+DTEND:20260131T105000Z
+SUMMARY:"Drop-in Replacement": Defining Compatibility for Postgres and MySQL Derivatives
+DESCRIPTION:The success of open source databases like PostgreSQL and MySQL/MariaDB has created an ecosystem of derivatives claiming "drop-in compatibility." But as the distance between upstream and these derivatives grows, user confusion and brand dilution can follow.
+ To address this, we explore the challenge of compatibility with de facto standards from two distinct angles: a governance perspective on defining the compatibility criteria, and a systems engineering case study on implementing them.
+ The Standard: We present the findings from the "Establishing the PostgreSQL Standard" working group held at PGConf.EU 2025. This progress report details the community's consensus on the hard requirements needed to fix the "wild west" of marketing claims, including:
+ Core SQL: Defining the non-negotiable functions, types, and PL/pgSQL.
+ Protocol: Why wire compatibility is insufficient without consistent transactional and pg_catalog behaviour.
+ Ecosystem: The critical requirements for integration with logical replication and tools like Patroni.
+ The Implementation: Maintaining compatibility with MySQL/MariaDB in TiDB, a distributed database engine, is far more complex than matching syntax for an evolving SQL dialect:
+ We explore the architectural friction of making TiDB speak the MySQL wire protocol and support the MySQL syntax.
+ We cover compatibility with the MySQL binary log based replication.
+X-ALT-DESC:<p>The success of open source databases like PostgreSQL and MySQL/MariaDB has created an ecosystem of derivatives claiming "drop-in compatibility." But as the distance between upstream and these derivatives grows, user confusion and brand dilution can follow.</p>
+ <p>To address this, we explore the challenge of compatibility with de facto standards from two distinct angles: a governance perspective on defining the compatibility criteria, and a systems engineering case study on implementing them.</p>
+ <ol>
+ <li><strong>The Standard:</strong> We present the findings from the <a href="https://2025.pgconf.eu/community-events/establishing-the-postgresql-standard-whats-postgres-compatible/">"Establishing the PostgreSQL Standard"</a> working group held at PGConf.EU 2025. This progress report details the community's consensus on the hard requirements needed to fix the "wild west" of marketing claims, including:<ul>
+ <li>Core SQL: Defining the non-negotiable functions, types, and PL/pgSQL.</li>
+ <li>Protocol: Why wire compatibility is insufficient without consistent transactional and <code>pg_catalog</code> behaviour.</li>
+ <li>Ecosystem: The critical requirements for integration with logical replication and tools like Patroni.</li>
+ </ul>
+ </li>
+ <li><strong>The Implementation:</strong> Maintaining compatibility with MySQL/MariaDB in <a href="https://github.com/pingcap/tidb">TiDB</a>, a distributed database engine, is far more complex than matching syntax for an evolving SQL dialect:<ul>
+ <li>We explore the architectural friction of making TiDB speak the MySQL wire protocol and support the MySQL syntax.</li>
+ <li>We cover compatibility with the MySQL binary log based replication.</li>
+ </ul>
+ </li>
+ </ol>
+CLASS:PUBLIC
+URL:https://fosdem.org/2026/schedule/event/ZMDB3S-defining-compatibility-postgres-mysql-derivatives/
+LOCATION:UB2.252A (Lameere)
+ATTENDEE;CUTYPE=INDIVIDUAL;ROLE=CHAIR;PARTSTAT=ACCEPTED;CN="Jimmy Angelakos":https://fosdem.org/2026/schedule/speakers/#Jimmy+Angelakos
+ATTENDEE;CUTYPE=INDIVIDUAL;ROLE=CHAIR;PARTSTAT=ACCEPTED;CN="Daniël van Eeden":https://fosdem.org/2026/schedule/speakers/#Dani%C3%ABl+van+Eeden
+END:VEVENT
+BEGIN:VEVENT
+UID:9741@2026@be.digitalia.fosdem
+DTSTAMP:20260201T185751Z
+DTSTART:20260131T105000Z
+DTEND:20260131T111000Z
+SUMMARY:Who’s reproducing the reproducible images?
+DESCRIPTION:Reproducing a container image would ideally be just a matter of setting SOURCE_DATE_EPOCH in your build commands or containerfiles. Like most reproducible builds though, that’s just one part of the story. And unfortunately, the other part is not the rest of the sources of non-determinism (and yes, there are quite a few). The most critical part of the story is guaranteeing that anyone can reproduce your container image bit-for-bit, regardless of the date, location, device architecture, or container runtime they are using. Who’s doing this though?
+ In this talk we’ll explain why one should care about reproducible images, why are we reproducibly building sha256:b0088ba0110c2acfe757eaf41967ac09fe16e96a8775b998577f86d90b3dbe53 for about a year now, and how you can easily leverage some of the stuff we learned along the way.
+X-ALT-DESC:<p>Reproducing a container image would ideally be just a matter of setting <code>SOURCE_DATE_EPOCH</code> in your build commands or containerfiles. Like most reproducible builds though, that’s just one part of the story. And unfortunately, the other part is <em>not</em> the rest of the sources of non-determinism (and yes, there are quite a few). The most critical part of the story is <em>guaranteeing</em> that anyone can reproduce your container image <em>bit-for-bit</em>, regardless of the date, location, device architecture, or container runtime they are using. Who’s doing this though?</p>
+ <p>In this talk we’ll explain why one should care about reproducible images, why are we reproducibly building <code>sha256:b0088ba0110c2acfe757eaf41967ac09fe16e96a8775b998577f86d90b3dbe53</code> for about a year now, and how you can easily leverage some of the stuff we learned along the way.</p>
+CLASS:PUBLIC
+URL:https://fosdem.org/2026/schedule/event/RYM8SF-repro-build/
+LOCATION:UA2.118 (Henriot)
+ATTENDEE;CUTYPE=INDIVIDUAL;ROLE=CHAIR;PARTSTAT=ACCEPTED;CN="Alex Pyrgiotis":https://fosdem.org/2026/schedule/speakers/#Alex+Pyrgiotis
+END:VEVENT
+BEGIN:VEVENT
+UID:9479@2026@be.digitalia.fosdem
+DTSTAMP:20260201T185751Z
+DTSTART:20260131T112000Z
+DTEND:20260131T114000Z
+SUMMARY:Cracking Down the Code: What Really Happens When You Run a SELECT?
+DESCRIPTION:We all write SQL, but how many of us have looked under the hood of a relational database like PostgreSQL? This talk is a deep dive into the guts of the database engine, tracking a simple SELECT statement from the moment you hit "Enter" to the final result set.
+ We'll lift the veil on the core components: the parser, the planner (and the optimizer's black magic!), and the executor, and see how they transform a text string into a low-level, high-performance operation. Using a live, interactive session on a PostgreSQL instance, we'll expose the role of the shared buffer cache, explain why an index works (or doesn't), explore the true cost of I/O, and understand the significance of the binary log (WAL) on read operations.
+ Whether you're a developer frustrated with slow queries or a database administrator looking to squeeze out every millisecond of performance, you'll leave this talk with a mental model that demystifies query execution and gives you the knowledge to write queries that fly.
+X-ALT-DESC:<p>We all write SQL, but how many of us have looked under the hood of a relational database like PostgreSQL? This talk is a deep dive into the guts of the database engine, tracking a simple SELECT statement from the moment you hit "Enter" to the final result set.</p>
+ <p>We'll lift the veil on the core components: the parser, the planner (and the optimizer's black magic!), and the executor, and see how they transform a text string into a low-level, high-performance operation. Using a live, interactive session on a PostgreSQL instance, we'll expose the role of the shared buffer cache, explain why an index works (or doesn't), explore the true cost of I/O, and understand the significance of the binary log (WAL) on read operations.</p>
+ <p>Whether you're a developer frustrated with slow queries or a database administrator looking to squeeze out every millisecond of performance, you'll leave this talk with a mental model that demystifies query execution and gives you the knowledge to write queries that fly.</p>
+CLASS:PUBLIC
+URL:https://fosdem.org/2026/schedule/event/9SU3P3-cracking-open-postgresql-select-execution-pipeline/
+LOCATION:UB2.252A (Lameere)
+ATTENDEE;CUTYPE=INDIVIDUAL;ROLE=CHAIR;PARTSTAT=ACCEPTED;CN="Charly Batista":https://fosdem.org/2026/schedule/speakers/#Charly+Batista
+END:VEVENT
+BEGIN:VEVENT
+UID:8926@2026@be.digitalia.fosdem
+DTSTAMP:20260201T185751Z
+DTSTART:20260131T115000Z
+DTEND:20260131T121000Z
+SUMMARY:Native OCI Container Support in systemd
+DESCRIPTION:OCI is many things, and soon it's a format systemd is going to understand somewhat natively. In this talk I want to explain the how, the why, and where we are going with this.
+X-ALT-DESC:<p>OCI is many things, and soon it's a format systemd is going to understand somewhat natively. In this talk I want to explain the how, the why, and where we are going with this.</p>
+CLASS:PUBLIC
+URL:https://fosdem.org/2026/schedule/event/ZKKQWC-native_oci_container_support_in_systemd/
+LOCATION:UA2.118 (Henriot)
+ATTENDEE;CUTYPE=INDIVIDUAL;ROLE=CHAIR;PARTSTAT=ACCEPTED;CN="Lennart Poettering":https://fosdem.org/2026/schedule/speakers/#Lennart+Poettering
+END:VEVENT
+BEGIN:VEVENT
+UID:6892@2026@be.digitalia.fosdem
+DTSTAMP:20260201T185751Z
+DTSTART:20260131T120000Z
+DTEND:20260131T125000Z
+SUMMARY:An Efficient Git Workflow For High-Stakes Projects
+DESCRIPTION:Git is a tool most programmers rely on, whether for work or personal projects. It’s far more than just a method for syncing local and remote changes. Git embodies a way of thinking that serves as the foundation for development workflows and steers project evolution.
+ At its core, Git has essential concepts such as commits, change history, branching, rebasing, and merging. While Git offers many features, these are its heart. Misusing them can lead to significant opportunity costs, while striking the right balance simplifies development at all levels and benefits the project’s community (if it has any).
+ In this talk I am sharing my own experience how applying these core concepts in real projects significantly accelerates development, especially in mission-critical systems. I’ll cover specifically the following topics with true examples from my work places, both open and closed source:
+ The importance of commit “atomicity” and what it means.
+ The cost and value of maintaining a clean commit history.
+ How “multi-commit patchsets” can accelerate development and code review.
+ Using rebase as a method for constructing patchsets.
+ Merge-Commits vs Fast-Forward.
+ All of that combined into a framework that I call "Atomic Flow".
+ Many teams enforce strict Git practices based on these key principles, and for good reason. I’ve worked on projects that fully harnessed Git’s potential from the outset, as well as those that initially overlooked its strengths but later embraced them. My goal is to help more teams achieve greater efficiency by adopting these best practices, provided their project highly depends on uncompromising code quality and easy maintenance. This is what "Atomic Flow" is about.
+X-ALT-DESC:<p>Git is a tool most programmers rely on, whether for work or personal projects. It’s far more than just a method for syncing local and remote changes. Git embodies a way of thinking that serves as the foundation for development workflows and steers project evolution.</p>
+ <p>At its core, Git has essential concepts such as commits, change history, branching, rebasing, and merging. While Git offers many features, these are its heart. Misusing them can lead to significant opportunity costs, while striking the right balance simplifies development at all levels and benefits the project’s community (if it has any).</p>
+ <p>In this talk I am sharing my own experience how applying these core concepts in real projects significantly accelerates development, especially in mission-critical systems. I’ll cover specifically the following topics with true examples from my work places, both open and closed source:</p>
+ <ul>
+ <li>The importance of commit “atomicity” and what it means.</li>
+ <li>The cost and value of maintaining a clean commit history.</li>
+ <li>How “multi-commit patchsets” can accelerate development and code review.</li>
+ <li>Using rebase as a method for constructing patchsets.</li>
+ <li>Merge-Commits vs Fast-Forward.</li>
+ </ul>
+ <p>All of that combined into a framework that I call "Atomic Flow".</p>
+ <p>Many teams enforce strict Git practices based on these key principles, and for good reason. I’ve worked on projects that fully harnessed Git’s potential from the outset, as well as those that initially overlooked its strengths but later embraced them. My goal is to help more teams achieve greater efficiency by adopting these best practices, provided their project highly depends on uncompromising code quality and easy maintenance. This is what "Atomic Flow" is about.</p>
+CLASS:PUBLIC
+URL:https://fosdem.org/2026/schedule/event/3VNNBK-efficient-git-for-high-stakes/
+LOCATION:Janson
+ATTENDEE;CUTYPE=INDIVIDUAL;ROLE=CHAIR;PARTSTAT=ACCEPTED;CN="Vladislav Shpilevoy":https://fosdem.org/2026/schedule/speakers/#Vladislav+Shpilevoy
+END:VEVENT
+BEGIN:VEVENT
+UID:9091@2026@be.digitalia.fosdem
+DTSTAMP:20260201T185751Z
+DTSTART:20260131T123000Z
+DTEND:20260131T125500Z
+SUMMARY:The terrible economics of package registries and how to fix them
+DESCRIPTION:Package registries are critical infrastructure used by almost all software. As they scale, package registries become critical points of supply chain security. They also become leveraged points of attack. Most registries operate on dwindling funding from grants, donations, and in-kind resources while facing increased costs across every facet of their operation and development. Something has to change.
+ The Alpha-Omega project has been raising the alarm, funding security improvements, and exploring a revenue-generating options with the major package registries. This is a hard problem with multiple players and tradeoffs.
+ This talk will go over the economic models underlying package registries, the security risks and expectations, and look at some of the revenue experiments happening today.
+X-ALT-DESC:<p>Package registries are critical infrastructure used by almost all software. As they scale, package registries become critical points of supply chain security. They also become leveraged points of attack. Most registries operate on dwindling funding from grants, donations, and in-kind resources while facing increased costs across every facet of their operation and development. Something has to change.</p>
+ <p>The Alpha-Omega project has been raising the alarm, funding security improvements, and exploring a revenue-generating options with the major package registries. This is a hard problem with multiple players and tradeoffs. </p>
+ <p>This talk will go over the economic models underlying package registries, the security risks and expectations, and look at some of the revenue experiments happening today.</p>
+CLASS:PUBLIC
+URL:https://fosdem.org/2026/schedule/event/8WJKEH-package-registry-economics/
+LOCATION:K.3.201
+ATTENDEE;CUTYPE=INDIVIDUAL;ROLE=CHAIR;PARTSTAT=ACCEPTED;CN="Michael Winser":https://fosdem.org/2026/schedule/speakers/#Michael+Winser
+END:VEVENT
+BEGIN:VEVENT
+UID:7797@2026@be.digitalia.fosdem
+DTSTAMP:20260201T185751Z
+DTSTART:20260131T130000Z
+DTEND:20260131T132500Z
+SUMMARY:Package Management Learnings from Homebrew
+DESCRIPTION:Homebrew released v5.0.0 in November 2025. I'll walk through some of the major changes that landed in that Homebrew version, what expectations we're aiming to improve based on other package managers and things other package managers could learn from Homebrew's approach.
+X-ALT-DESC:<p>Homebrew released v5.0.0 in November 2025. I'll walk through some of the major changes that landed in that Homebrew version, what expectations we're aiming to improve based on other package managers and things other package managers could learn from Homebrew's approach.</p>
+CLASS:PUBLIC
+URL:https://fosdem.org/2026/schedule/event/FGBYKV-package_management_learnings_from_homebrew/
+LOCATION:K.3.201
+ATTENDEE;CUTYPE=INDIVIDUAL;ROLE=CHAIR;PARTSTAT=ACCEPTED;CN="Mike McQuaid":https://fosdem.org/2026/schedule/speakers/#Mike+McQuaid
+END:VEVENT
+BEGIN:VEVENT
+UID:7940@2026@be.digitalia.fosdem
+DTSTAMP:20260201T185751Z
+DTSTART:20260131T132500Z
+DTEND:20260131T134500Z
+SUMMARY:You do not need an ORM
+DESCRIPTION:Using SQL from other programming languages can prove to be quite the hassle: wrangling the database rows into the host's language types is tedious and error prone, and making sure the application code stays up to date with the ever-changing database schema is just as challenging.
+ To address these developer experience shortcomings ORMs try to shield the developer from ever having to write any SQL at all. This doesn't feel totally satisfying though: as developers we are always keen on using the right language for the job, so what would it look like to fully embrace SQL instead of trying to abstract it away?
+ In this talk we'll look at Squirrel (https://github.com/giacomocavalieri/squirrel), a library that tackles database access in Gleam (https://gleam.run): a functional, statically-typed language. We'll explore how code generation from raw SQL can help bridge the gap between the database and a functional language without compromising on type-safety, performance or developer experience.
+X-ALT-DESC:<p>Using SQL from other programming languages can prove to be quite the hassle: wrangling the database rows into the host's language types is tedious and error prone, and making sure the application code stays up to date with the ever-changing database schema is just as challenging.</p>
+ <p>To address these developer experience shortcomings ORMs try to shield the developer from ever having to write any SQL at all. This doesn't feel totally satisfying though: as developers we are always keen on using the right language for the job, so what would it look like to fully embrace SQL instead of trying to abstract it away?</p>
+ <p>In this talk we'll look at Squirrel (https://github.com/giacomocavalieri/squirrel), a library that tackles database access in Gleam (https://gleam.run): a functional, statically-typed language. We'll explore how code generation from raw SQL can help bridge the gap between the database and a functional language without compromising on type-safety, performance or developer experience.</p>
+CLASS:PUBLIC
+URL:https://fosdem.org/2026/schedule/event/F9Y7ZY-you-do-not-need-an-orm/
+LOCATION:UB2.252A (Lameere)
+ATTENDEE;CUTYPE=INDIVIDUAL;ROLE=CHAIR;PARTSTAT=ACCEPTED;CN="Giacomo":https://fosdem.org/2026/schedule/speakers/#Giacomo
+END:VEVENT
+BEGIN:VEVENT
+UID:7926@2026@be.digitalia.fosdem
+DTSTAMP:20260201T185751Z
+DTSTART:20260131T140000Z
+DTEND:20260131T142500Z
+SUMMARY:Running Wikipedia on Bare Metal, Open Source, and a Healthy Dose of Caching
+DESCRIPTION:At Wikimedia Foundation, we run Wikipedia, the world's favourite encyclopædia and one of the top ten websites of the Internet! No unicorns, just hardware, open source, and a small engineering org.
+ This talk pulls back the curtain on the stack that keeps Wikipedia fast, reliable, and resilient at global scale. Caching layers, databases, microservices, and Kubernetes are all stitched together to serve the world.
+ We'll also touch on how we've brought our 25-year-old monolith into the cloud-native era, and discuss the challenges we're navigating as the ongoing ~~rise of the machines~~ surge in LLM traffic changes the game.
+X-ALT-DESC:<p>At Wikimedia Foundation, we run Wikipedia, the world's favourite encyclopædia and one of the top ten websites of the Internet! No unicorns, just hardware, open source, and a small engineering org.</p>
+ <p>This talk pulls back the curtain on the stack that keeps Wikipedia fast, reliable, and resilient at global scale. Caching layers, databases, microservices, and Kubernetes are all stitched together to serve the world.</p>
+ <p>We'll also touch on how we've brought our 25-year-old monolith into the cloud-native era, and discuss the challenges we're navigating as the ongoing ~~rise of the machines~~ surge in LLM traffic changes the game.</p>
+CLASS:PUBLIC
+URL:https://fosdem.org/2026/schedule/event/YDLGLN-running_wikipedia_on_bare_metal_open_source_and_a_healthy_dose_of_caching/
+LOCATION:K.1.105 (La Fontaine)
+ATTENDEE;CUTYPE=INDIVIDUAL;ROLE=CHAIR;PARTSTAT=ACCEPTED;CN="effie mouzeli":https://fosdem.org/2026/schedule/speakers/#effie+mouzeli
+END:VEVENT
+BEGIN:VEVENT
+UID:9099@2026@be.digitalia.fosdem
+DTSTAMP:20260201T185751Z
+DTSTART:20260131T140000Z
+DTEND:20260131T143000Z
+SUMMARY:The Bakery: How PEP810 sped up my bread operations business
+DESCRIPTION:Discover how PEP 810's explicit lazy imports can dramatically improve Python application startup times. Using a real CLI tool as a case study, that we totally use in our real business, this talk demonstrates practical techniques to optimize import performance while maintaining code clarity and safety.
+X-ALT-DESC:<p>Discover how PEP 810's explicit lazy imports can dramatically improve Python application startup times. Using a real CLI tool as a case study, that we totally use in our real business, this talk demonstrates practical techniques to optimize import performance while maintaining code clarity and safety.</p>
+CLASS:PUBLIC
+URL:https://fosdem.org/2026/schedule/event/HAAABD-the_bakery_how_pep810_sped_up_my_bread_operations_business/
+LOCATION:UA2.220 (Guillissen)
+ATTENDEE;CUTYPE=INDIVIDUAL;ROLE=CHAIR;PARTSTAT=ACCEPTED;CN="Jacob Coffee":https://fosdem.org/2026/schedule/speakers/#Jacob+Coffee
+END:VEVENT
+BEGIN:VEVENT
+UID:7766@2026@be.digitalia.fosdem
+DTSTAMP:20260201T185751Z
+DTSTART:20260131T143000Z
+DTEND:20260131T150000Z
+SUMMARY:The GIL and API Performance: Past, Present, and Free-Threaded Future
+DESCRIPTION:Python’s Global Interpreter Lock has shaped the way developers build concurrent applications for nearly three decades. While the GIL simplified the CPython ecosystem, it also imposed well-known limits on CPU-bound work and multithreaded scalability. With the introduction of free-threaded Python (3.14t), that is about to change.
+ This talk explores the history and purpose of the GIL, why it existed for so long, and the innovations that finally made its removal viable. We’ll look at how free-threading affects real workloads through concrete benchmarks. We'll investigate the often overlooked effect of freethreading on webservers. You’ll see how modern servers like Granian, ASGI frameworks, and WSGI stacks behave when threads are no longer serialized by the interpreter.
+ By the end, you’ll understand not only what the GIL is, but what its disappearance means for scaling Python applications in production. Whether you're building high-throughput APIs, tuning async code, or planning future architecture, free-threaded Python opens the door to new performance ceilings - along with new tradeoffs every developer should know.
+X-ALT-DESC:<p>Python’s Global Interpreter Lock has shaped the way developers build concurrent applications for nearly three decades. While the GIL simplified the CPython ecosystem, it also imposed well-known limits on CPU-bound work and multithreaded scalability. With the introduction of free-threaded Python (3.14t), that is about to change.</p>
+ <p>This talk explores the history and purpose of the GIL, why it existed for so long, and the innovations that finally made its removal viable. We’ll look at how free-threading affects real workloads through concrete benchmarks. We'll investigate the often overlooked effect of freethreading on webservers. You’ll see how modern servers like Granian, ASGI frameworks, and WSGI stacks behave when threads are no longer serialized by the interpreter.</p>
+ <p>By the end, you’ll understand not only what the GIL is, but what its disappearance means for scaling Python applications in production. Whether you're building high-throughput APIs, tuning async code, or planning future architecture, free-threaded Python opens the door to new performance ceilings - along with new tradeoffs every developer should know.</p>
+CLASS:PUBLIC
+URL:https://fosdem.org/2026/schedule/event/ABJMWD-the_gil_and_api_performance_past_present_and_free-threaded_future/
+LOCATION:UA2.220 (Guillissen)
+ATTENDEE;CUTYPE=INDIVIDUAL;ROLE=CHAIR;PARTSTAT=ACCEPTED;CN="Ruben Hias":https://fosdem.org/2026/schedule/speakers/#Ruben+Hias
+END:VEVENT
+BEGIN:VEVENT
+UID:7794@2026@be.digitalia.fosdem
+DTSTAMP:20260201T185751Z
+DTSTART:20260131T143000Z
+DTEND:20260131T145500Z
+SUMMARY:What happened to RubyGems and what can we learn?
+DESCRIPTION:In September and October 2025, RubyGems and Bundler, the clients and package registry for the Ruby language, had most of their maintainers removed by RubyCentral, the non-profit foundation that claimed ownership of these repositories. Since then, some of these repositories have been moved into the Ruby organisation and some of the ex-RubyGems maintainers have created an alternative hosting service, gem.coop.
+ I was a neutral party involved with initial mediation between RubyCentral and the maintainers before and during this transition and helped gem.coop bootstrap a governance process.
+ These events have much for non-Ruby projects to learn about non-profits, governance, money and access in open-source and I will share my learnings without taking any particular side in the disputes.
+X-ALT-DESC:<p>In September and October 2025, RubyGems and Bundler, the clients and package registry for the Ruby language, had most of their maintainers removed by RubyCentral, the non-profit foundation that claimed ownership of these repositories. Since then, some of these repositories have been moved into the Ruby organisation and some of the ex-RubyGems maintainers have created an alternative hosting service, gem.coop.</p>
+ <p>I was a neutral party involved with initial mediation between RubyCentral and the maintainers before and during this transition and helped gem.coop bootstrap a governance process.</p>
+ <p>These events have much for non-Ruby projects to learn about non-profits, governance, money and access in open-source and I will share my learnings without taking any particular side in the disputes.</p>
+CLASS:PUBLIC
+URL:https://fosdem.org/2026/schedule/event/YUJUKD-what_happened_to_rubygems_and_what_can_we_learn/
+LOCATION:K.1.105 (La Fontaine)
+ATTENDEE;CUTYPE=INDIVIDUAL;ROLE=CHAIR;PARTSTAT=ACCEPTED;CN="Mike McQuaid":https://fosdem.org/2026/schedule/speakers/#Mike+McQuaid
+END:VEVENT
+BEGIN:VEVENT
+UID:8287@2026@be.digitalia.fosdem
+DTSTAMP:20260201T185751Z
+DTSTART:20260131T150000Z
+DTEND:20260131T155000Z
+SUMMARY:Lightning lightning talks 1
+DESCRIPTION:The regular FOSDEM lightning talk track isn't chaotic enough, so this year we're doubling down on Lightning Lightning Talks (now with added lightning!).
+ Thought of a last minute topic you want to share? Got your interesting talk rejected? Has something exciting happened in the last few weeks you want to talk about?
+ This is the first of two sessions for participants to speak about subjects which are interesting, amusing, or just something the FOSDEM audience would appreciate.
+ Selected speakers line up and present in one continuous automated stream, with an SLO of 99% talk uptime.
+ Presenters who attempt to speak for longer than 256 seconds risk being swept off the stage by our Lightning Lightning Talk Cleanup Crew.
+ Featuring:
+ The use of technology by emergency services - Rémi Duraffort
+ ./make art: A Creative Commons Theater Experiment - Bogomil Shopov - Бого
+ Scrcpy: Your new everything - Maanav Nagda
+ Cooklang Federation - Alexey Dubovskoy
+ my mainframe runs arch btw - Josephine Pfeiffer
+ xcover: Cross-language test coverage with eBPF - Massimiliano Giovagnoli
+ IsThatSlop? Community-powered AI Content detection - Carles Onielfa
+ Open Prices: an open crowdsourced price database - Raphael Odini & Alex Bourreau
+ Everyone benefits from translations; if you make them useful - Benjamin Alan Jamie
+ SoCmel1, an SDR SoC. Litex and RiscV on a Gowin FPGA - alberto
+ How Bóbr Broke My Postgres Search: ARM vs x86 in 256 Seconds - Anton Borisov
+X-ALT-DESC:<p>The regular FOSDEM lightning talk track isn't chaotic enough, so this year we're doubling down on Lightning Lightning Talks (now with added lightning!).</p>
+ <p>Thought of a last minute topic you want to share? Got your interesting talk rejected? Has something exciting happened in the last few weeks you want to talk about?</p>
+ <p>This is the first of two sessions for participants to speak about subjects which are interesting, amusing, or just something the FOSDEM audience would appreciate.</p>
+ <p>Selected speakers line up and present in one continuous automated stream, with an SLO of 99% talk uptime.</p>
+ <p>Presenters who attempt to speak for longer than 256 seconds risk being swept off the stage by our Lightning Lightning Talk Cleanup Crew.</p>
+ <p>Featuring:</p>
+ <ul>
+ <li><strong>The use of technology by emergency services</strong> - <strong>Rémi Duraffort</strong></li>
+ <li><strong>./make art: A Creative Commons Theater Experiment</strong> - <strong>Bogomil Shopov - Бого</strong></li>
+ <li><strong>Scrcpy: Your new everything</strong> - <strong>Maanav Nagda</strong></li>
+ <li><strong>Cooklang Federation</strong> - <strong>Alexey Dubovskoy</strong></li>
+ <li><strong>my mainframe runs arch btw</strong> - <strong>Josephine Pfeiffer</strong></li>
+ <li><strong>xcover: Cross-language test coverage with eBPF</strong> - <strong>Massimiliano Giovagnoli</strong></li>
+ <li><strong>IsThatSlop? Community-powered AI Content detection</strong> - <strong>Carles Onielfa</strong></li>
+ <li><strong>Open Prices: an open crowdsourced price database</strong> - <strong>Raphael Odini &amp; Alex Bourreau</strong></li>
+ <li><strong>Everyone benefits from translations; if you make them useful</strong> - <strong>Benjamin Alan Jamie</strong></li>
+ <li><strong>SoCmel1, an SDR SoC. Litex and RiscV on a Gowin FPGA</strong> - <strong>alberto</strong></li>
+ <li><strong>How Bóbr Broke My Postgres Search: ARM vs x86 in 256 Seconds</strong> - <strong>Anton Borisov</strong></li>
+ </ul>
+CLASS:PUBLIC
+URL:https://fosdem.org/2026/schedule/event/CNPVJL-lightning_lightning_talks_1/
+LOCATION:Janson
+END:VEVENT
+BEGIN:VEVENT
+UID:9075@2026@be.digitalia.fosdem
+DTSTAMP:20260201T185751Z
+DTSTART:20260131T150000Z
+DTEND:20260131T153000Z
+SUMMARY:Modern Python monorepo with `uv`, `workspaces`, `prek` and shared libraries
+DESCRIPTION:Apache Airflow is the most popular Data Workflow Orchestrator - developed under the Apache Software Foundation umbrella. We have 120+ Python distributions in our rep, and we often release ~ 100 of them every two week.
+ All those distributions are built from a single monorepo.
+ [jarekpotiuk:~/code/airflow] find . -name 'pyproject.toml' | wc 120 120 4248
+ This had always posed a lot of challenges and we had a lot of tooling to make it possible, however with the recent development of Python Packaging tools, multipel Packaging PEPs implemented, and with new wave of tools such as uv and prek, our setup is finally manageable and we removed 1000s of line of custom code we wrote before after we applied uv workspaces, switched to prek, started using inline script metadata.
+ It's a breeze to have monorepo now. This talk explains how.
+ Bonus content. If you know the differences between dynamically and statically linked libraries in C and other languages, or used NPM - you might recognise the need of being able to use different versions of the same library in the same system. It's not possible in Python. Or is it?
+ We've figured out a way to eat cake and have it too - and we have "statically linked" libraries in Python. How did we do it?
+ You will find out how from the talk.
+X-ALT-DESC:<p>Apache Airflow is the most popular Data Workflow Orchestrator - developed under the Apache Software Foundation umbrella. We have 120+ Python distributions in our rep, and we often release ~ 100 of them every two week. </p>
+ <p>All those distributions are built from a single monorepo. </p>
+ <p><code>[jarekpotiuk:~/code/airflow]  find . -name 'pyproject.toml' | wc
+      120     120    4248</code></p>
+ <p>This had always posed a lot of challenges and we had a lot of tooling to make it possible, however with the recent development of Python Packaging tools, multipel Packaging PEPs implemented, and with new wave of tools such as <code>uv</code> and <code>prek</code>, our setup is finally manageable and we removed 1000s of line of custom code we wrote before after we applied <code>uv</code> workspaces, switched to <code>prek</code>, started using inline script metadata.</p>
+ <p>It's a breeze to have monorepo now. This talk explains how.</p>
+ <p>Bonus content. If you know the differences between dynamically and statically linked libraries in C and other languages, or used NPM - you might recognise the need of being able to use different versions of the same library in the same system. It's not possible in Python. Or is it? </p>
+ <p>We've figured out a way to eat cake and have it too - and we have "statically linked" libraries in Python. How did we do it?  </p>
+ <p>You will find out how from the talk.</p>
+CLASS:PUBLIC
+URL:https://fosdem.org/2026/schedule/event/WE7NHM-modern-python-monorepo-apache-airflow/
+LOCATION:UA2.220 (Guillissen)
+ATTENDEE;CUTYPE=INDIVIDUAL;ROLE=CHAIR;PARTSTAT=ACCEPTED;CN="Jarek Potiuk":https://fosdem.org/2026/schedule/speakers/#Jarek+Potiuk
+END:VEVENT
+BEGIN:VEVENT
+UID:7693@2026@be.digitalia.fosdem
+DTSTAMP:20260201T185751Z
+DTSTART:20260131T153500Z
+DTEND:20260131T155500Z
+SUMMARY:Inverted database indexes: The why, the what, and the how.
+DESCRIPTION:Database usage in practice often involves heavy text processing. For example, in "observability" use cases, databases must extract, store, and search billions of log messages daily. Most databases, including many column-oriented OLAP databases, struggle with such massive amounts of text data. The only way to process text data at scale is by using specialized inverted indexes in databases.
+ This presentation explains how inverted indexes work and which (text) search patterns they support. Where appropriate, we describe our experience and the gotchas we encountered when adding an inverted index to ClickHouse, one of the most popular open-source databases for analytics.
+X-ALT-DESC:<p>Database usage in practice often involves heavy text processing. For example, in "observability" use cases, databases must extract, store, and search billions of log messages daily. Most databases, including many column-oriented OLAP databases, struggle with such massive amounts of text data. The only way to process text data at scale is by using specialized inverted indexes in databases.</p>
+ <p>This presentation explains how inverted indexes work and which (text) search patterns they support. Where appropriate, we describe our experience and the gotchas we encountered when adding an inverted index to ClickHouse, one of the most popular open-source databases for analytics.</p>
+CLASS:PUBLIC
+URL:https://fosdem.org/2026/schedule/event/N38ZF9-inverted_database_indexes_the_why_the_what_and_the_how/
+LOCATION:UB2.252A (Lameere)
+ATTENDEE;CUTYPE=INDIVIDUAL;ROLE=CHAIR;PARTSTAT=ACCEPTED;CN="Robert Schulze":https://fosdem.org/2026/schedule/speakers/#Robert+Schulze
+END:VEVENT
+BEGIN:VEVENT
+UID:8112@2026@be.digitalia.fosdem
+DTSTAMP:20260201T185751Z
+DTSTART:20260131T160000Z
+DTEND:20260131T165000Z
+SUMMARY:How to Make Package Managers Scream
+DESCRIPTION:1000 years ago in the Package Management devroom at FOSDEM 2018 I gave a talk entitled "How To Make Package Managers Cry", where I presented a range of techniques that open source software projects can apply to make the life of package managers utterly miserable.
+ In many ways, the world is a different place since then... Never in my wildest dreams could I have imagined that this was just the tip of the iceberg. Open source enthusiasts have come up with many more and even better ideas!
+ Come and learn about the creative yet tremendously effective ways in which open source software projects (and the broader ecosystem) have taken things to the next level to make package managers scream.
+ You may also get to know a couple of tools that (for some reason) try to counter these best practices, to great dismay of the open source software community.
+ If you too want to make package managers scream, don't miss this talk...
+X-ALT-DESC:<p>1000 years ago in the Package Management devroom at FOSDEM 2018 I gave a talk entitled <a href="https://archive.fosdem.org/2018/schedule/event/how_to_make_package_managers_cry/">"How To Make Package Managers Cry"</a>, where I presented a range of techniques that open source software projects can apply to make the life of package managers utterly miserable.</p>
+ <p>In many ways, the world is a different place since then...
+ Never in my wildest dreams could I have imagined that this was just the tip of the iceberg.
+ Open source enthusiasts have come up with many more and even better ideas!</p>
+ <p>Come and learn about the creative yet tremendously effective ways in which open source software projects (and the broader ecosystem) have taken things to the next level to make package managers scream.</p>
+ <p>You may also get to know a couple of tools that (for some reason) try to counter these best practices, to great dismay of the open source software community.</p>
+ <p>If you too want to make package managers scream, don't miss this talk...</p>
+CLASS:PUBLIC
+URL:https://fosdem.org/2026/schedule/event/DCAVDC-how_to_make_package_managers_scream/
+LOCATION:K.1.105 (La Fontaine)
+ATTENDEE;CUTYPE=INDIVIDUAL;ROLE=CHAIR;PARTSTAT=ACCEPTED;CN="Kenneth Hoste":https://fosdem.org/2026/schedule/speakers/#Kenneth+Hoste
+END:VEVENT
+BEGIN:VEVENT
+UID:7695@2026@be.digitalia.fosdem
+DTSTAMP:20260201T185751Z
+DTSTART:20260131T163000Z
+DTEND:20260131T170000Z
+SUMMARY:Is it time for a Django Admin rewrite? If so, how?
+DESCRIPTION:Django's built-in admin is powerful, but it's essentially a separate framework within Django and it's 20 years old.
+ Wouldn't it be nice to be able to work with an admin interface that works like the rest of Django, built on generic CBVs, plugins, and view factories? Django-Admin2, was an attempt at doing just that and it was a fairly successful ptoject.
+ 10 years later, after looking at reviving that project, I realized we needed a fresh approach: Meet Django-Admin-Deux: a proof-of-concept Django admin replacement where CRUD operations are just actions, knowledge transfers both ways, and everything feels like Django.
+ Let's have a look at what python features and architecture makes this possible
+X-ALT-DESC:<p><a href="https://www.djangoproject.com">Django</a>'s built-in admin is powerful, but it's essentially a separate framework within Django and it's 20 years old.</p>
+ <p>Wouldn't it be nice to be able to work with an admin interface that works like the rest of Django, built on generic CBVs, plugins, and view factories? <a href="https://github.com/jazzband/django-admin2">Django-Admin2</a>, was an attempt at doing just that and it was a fairly successful ptoject.</p>
+ <p>10 years later, after looking at reviving that project, I realized we needed a fresh approach: Meet <a href="https://codeberg.org/emmaDelescolle/django-admin-deux">Django-Admin-Deux</a>: a proof-of-concept Django admin replacement where CRUD operations are just actions, knowledge transfers both ways, and everything feels like Django.</p>
+ <p>Let's have a look at what python features and architecture makes this possible</p>
+CLASS:PUBLIC
+URL:https://fosdem.org/2026/schedule/event/UBNWNL-django-admin-deux/
+LOCATION:UA2.220 (Guillissen)
+ATTENDEE;CUTYPE=INDIVIDUAL;ROLE=CHAIR;PARTSTAT=ACCEPTED;CN="Emma Delescolle":https://fosdem.org/2026/schedule/speakers/#Emma+Delescolle
+END:VEVENT
+BEGIN:VEVENT
+UID:9704@2026@be.digitalia.fosdem
+DTSTAMP:20260201T185751Z
+DTSTART:20260131T173000Z
+DTEND:20260131T180000Z
+SUMMARY:Lightning Talks
+DESCRIPTION:After the success of last year's impromptu lightning talks session, we will have an official one in the Python Devroom for 2026.
+ Please submit your talks using this form:
+ Lightning Talk Submission Form
+ The form will be opened for submissions at around 14:00 CET on Saturday, Jan 31, 2026.
+ Lightning Talks are at most 5 minutes and should be Python related.
+ Note: All presentations in this slot will be recorded and made available under a CC-BY license.
+ Thank you, Python Devroom Organizers
+X-ALT-DESC:<p>After the success of last year's impromptu lightning talks session, we will have an official one in the Python Devroom for 2026.</p>
+ <p>Please submit your talks using this form:</p>
+ <ul>
+ <li>
+ <p><a href="https://docs.google.com/forms/d/e/1FAIpQLSfh1zpbP6KgMmexQeT6jlcX1_o8W26zovBUVVudxopBMfjGsg/viewform?usp=header">Lightning Talk Submission Form</a></p>
+ </li>
+ <li>
+ <p>The form will be opened for submissions at around 14:00 CET on Saturday, Jan 31, 2026.</p>
+ </li>
+ </ul>
+ <p>Lightning Talks are at most 5 minutes and should be Python related.</p>
+ <p>Note: All presentations in this slot will be recorded and made available under a CC-BY license.</p>
+ <p>Thank you,
+ Python Devroom Organizers</p>
+CLASS:PUBLIC
+URL:https://fosdem.org/2026/schedule/event/YYTRKQ-lightning_talks/
+LOCATION:UA2.220 (Guillissen)
+ATTENDEE;CUTYPE=INDIVIDUAL;ROLE=CHAIR;PARTSTAT=ACCEPTED;CN="Marc-André Lemburg":https://fosdem.org/2026/schedule/speakers/#Marc-Andr%C3%A9+Lemburg
+END:VEVENT
+BEGIN:VEVENT
+UID:6895@2026@be.digitalia.fosdem
+DTSTAMP:20260201T185751Z
+DTSTART:20260201T080000Z
+DTEND:20260201T085000Z
+SUMMARY:Free as in Burned Out: Who Really Pays for Open Source?
+DESCRIPTION:Open Source powers nearly everything in our digital lives, from web servers to smartphones. In many ways, we could say Open Source has "won". But can we really celebrate that victory when so many maintainers are burning out, while users and companies continue to depend on their unpaid labor? The current sustainability models, from corporate sponsorships to paid support, often fall short, leaving creators overwhelmed and users with unrealistic expectations. In this talk, we’ll take a critical look at how Open Source has been funded (or not funded), why many existing models are failing, and what new paths we might explore to ensure the long-term health of the ecosystem. We’ll dissect funding approaches like donations, sponsorships, and open core, and ask some uncomfortable questions: Why are we still relying on volunteers to power global infrastructure? Is it time for an Open Source tax? Would paying volunteers actually motivate or demotivate them? This is not just a talk about money. It’s a call to radically rethink what sustainability really means for Open Source, and how we can build a future that doesn’t run on burnout.
+X-ALT-DESC:<p>Open Source powers nearly everything in our digital lives, from web servers to smartphones. In many ways, we could say Open Source has "won". But can we really celebrate that victory when so many maintainers are burning out, while users and companies continue to depend on their unpaid labor?
+ The current sustainability models, from corporate sponsorships to paid support, often fall short, leaving creators overwhelmed and users with unrealistic expectations.
+ In this talk, we’ll take a critical look at how Open Source has been funded (or not funded), why many existing models are failing, and what new paths we might explore to ensure the long-term health of the ecosystem.
+ We’ll dissect funding approaches like donations, sponsorships, and open core, and ask some uncomfortable questions: Why are we still relying on volunteers to power global infrastructure? Is it time for an Open Source tax? Would paying volunteers actually motivate or demotivate them?
+ This is not just a talk about money. It’s a call to radically rethink what sustainability really means for Open Source, and how we can build a future that doesn’t run on burnout.</p>
+CLASS:PUBLIC
+URL:https://fosdem.org/2026/schedule/event/L3BK7S-free-as-in-burned-out/
+LOCATION:Janson
+ATTENDEE;CUTYPE=INDIVIDUAL;ROLE=CHAIR;PARTSTAT=ACCEPTED;CN="Marga Manterola":https://fosdem.org/2026/schedule/speakers/#Marga+Manterola
+END:VEVENT
+BEGIN:VEVENT
+UID:9940@2026@be.digitalia.fosdem
+DTSTAMP:20260201T185751Z
+DTSTART:20260201T082000Z
+DTEND:20260201T083500Z
+SUMMARY:Four Year Bus
+DESCRIPTION:CS++ is an entirely-led student computer science society in TU Dublin. Our goal is to give our members experiences and skills they won't get in class, this includes going to FOSDEM!
+ Ontop of that, CS++ maintains a cluster of servers that runs services for themselves and several other societies in the university. Which we have to maintain even though students are in university for only four years.
+ This Four Year Bus talk covers how we went from an empty room to our current tech stack, as well as how we manage training, handover and long-term planning when everyone involved has a timer until they are hit by a bus.
+X-ALT-DESC:<p><a href="https://cspp.ie">CS++</a> is an entirely-led student computer science society in TU Dublin.
+ Our goal is to give our members experiences and skills they won't get in class, this includes going to FOSDEM!</p>
+ <p>Ontop of that, CS++ maintains a cluster of servers that runs services for themselves and several other societies in the university. Which we have to maintain even though students are in university for only four years.</p>
+ <p>This <em>Four Year Bus</em> talk covers how we went from an empty room to our current tech stack, as well as how we manage training, handover and long-term planning when everyone involved has a timer until they are hit by a bus.</p>
+CLASS:PUBLIC
+URL:https://fosdem.org/2026/schedule/event/ZUVAZD-four_year_bus/
+LOCATION:H.2215 (Ferrer)
+ATTENDEE;CUTYPE=INDIVIDUAL;ROLE=CHAIR;PARTSTAT=ACCEPTED;CN="Ruán Murgatroyd":https://fosdem.org/2026/schedule/speakers/#Ru%C3%A1n+Murgatroyd
+END:VEVENT
+BEGIN:VEVENT
+UID:8808@2026@be.digitalia.fosdem
+DTSTAMP:20260201T185751Z
+DTSTART:20260201T090000Z
+DTEND:20260201T092500Z
+SUMMARY:RustBoy: A Rust journey into Game Boy dev
+DESCRIPTION:Tired of the endless “search, copy, paste, test” routine, last year’s FOSDEM helped me break out of that loop thanks to two unexpected sparks: Rust and retrogaming. In this talk, I’ll share how discovering Rust and the Game Boy homebrew scene rekindled my passion for creating software bare metal, bringing back the artistic and playful side of programming. We’ll explore the current state of the Rust ecosystem for GB, GBC, and GBA development — from compilers and minimalist engines to demo ROMs and the ongoing work bridging these two worlds.
+ Links https://github.com/ffex/rust-boy
+X-ALT-DESC:<p>Tired of the endless “search, copy, paste, test” routine, last year’s FOSDEM helped me break out of that loop thanks to two unexpected sparks: Rust and retrogaming. In this talk, I’ll share how discovering Rust and the Game Boy homebrew scene rekindled my passion for creating software bare metal, bringing back the artistic and playful side of programming. We’ll explore the current state of the Rust ecosystem for GB, GBC, and GBA development — from compilers and minimalist engines to demo ROMs and the ongoing work bridging these two worlds.</p>
+ <p><strong>Links</strong>
+ https://github.com/ffex/rust-boy</p>
+CLASS:PUBLIC
+URL:https://fosdem.org/2026/schedule/event/W3UFSK-rust-game-boy/
+LOCATION:UB2.252A (Lameere)
+ATTENDEE;CUTYPE=INDIVIDUAL;ROLE=CHAIR;PARTSTAT=ACCEPTED;CN="Federico Bassini":https://fosdem.org/2026/schedule/speakers/#Federico+Bassini
+END:VEVENT
+BEGIN:VEVENT
+UID:9790@2026@be.digitalia.fosdem
+DTSTAMP:20260201T185751Z
+DTSTART:20260201T100000Z
+DTEND:20260201T101500Z
+SUMMARY:Why I Volunteer at FOSDEM and You Should Too!
+DESCRIPTION:FOSDEM is legendary, but it doesn't run on magic, it runs on people.
+ Apart from the core organizers, an enthusiastic team of volunteers helps make FOSDEM the fun and safe community event we all love every year. As a long-time attendee, I made the jump to volunteering during the event and discovered a new side of the conference.
+ In this talk, I'll share my personal journey and what volunteering involves: from simple tasks like setting up directional signs or assisting at the InfoDesk, to setting up and tearing down before and after the event, or helping the video streaming team. I'll share stories of the folks I've met, the behind-the-scenes glimpse I got into this impressive organization, and how truly impressed I am by its operation.
+ However, the real reason to join is a chance to give back, meet new people, and become an active community builder. FOSDEM needs you to make the event a fun and safe place for all visitors.
+ What's in it for you? Join this session to learn how easy it is to sign up, the tasks you can pick (even just for a few hours!), and how you can join the effort to make FOSDEM 2026 the best one yet.
+ You can learn how to sign up at https://volunteers.fosdem.org/.
+X-ALT-DESC:<p><strong>FOSDEM is legendary, but it doesn't run on magic, it runs on people.</strong></p>
+ <p>Apart from the core organizers, an enthusiastic team of volunteers helps make FOSDEM the fun and safe community event we all love every year. As a long-time attendee, I made the jump to volunteering during the event and discovered a new side of the conference.</p>
+ <p>In this talk, I'll share my personal journey and what volunteering involves: from simple tasks like setting up directional signs or assisting at the InfoDesk, to setting up and tearing down before and after the event, or helping the video streaming team. I'll share stories of the folks I've met, the behind-the-scenes glimpse I got into this impressive organization, and how truly impressed I am by its operation.</p>
+ <p>However, the real reason to join is a chance to give back, meet new people, and become an active community builder. FOSDEM needs you to make the event a fun and safe place for all visitors. </p>
+ <p><strong>What's in it for you?</strong> Join this session to learn how easy it is to sign up, the tasks you can pick (even just for a few hours!), and how you can join the effort to make FOSDEM 2026 the best one yet. </p>
+ <p>You can learn how to sign up at https://volunteers.fosdem.org/.</p>
+CLASS:PUBLIC
+URL:https://fosdem.org/2026/schedule/event/J8UCRH-why_i_volunteer_at_fosdem_and_you_should_too/
+LOCATION:H.2215 (Ferrer)
+ATTENDEE;CUTYPE=INDIVIDUAL;ROLE=CHAIR;PARTSTAT=ACCEPTED;CN="Imma Valls":https://fosdem.org/2026/schedule/speakers/#Imma+Valls
+END:VEVENT
+BEGIN:VEVENT
+UID:6853@2026@be.digitalia.fosdem
+DTSTAMP:20260201T185751Z
+DTSTART:20260201T103000Z
+DTEND:20260201T105500Z
+SUMMARY:Who Funds the Egg? Cracking the FOSS Funding Paradox
+DESCRIPTION:Every successful open source project starts small, but not every small project gets the chance to succeed. Here’s the paradox: funders prefer to back proven impact, yet impact requires early support. If new initiatives can’t access resources until they already “look successful,” we risk starving the very ecosystem that keeps open source innovative and diverse.
+ This talk explores this chicken-and-egg dilemma and proposes ways to flip the script. What would it look like if we invested not only in impact already proven, but also in potential?
+ Drawing from my experience building Pre-Seeds: Research 101, I’ll share insights into the struggles early-stage projects face (e.g., limited visibility, lack of credibility, and difficulty accessing networks). I'll also highlight the kinds of support that make a difference, sharing lessons on how these projects can be supported beyond grants. From spotlighting them on community stages and amplifying their voice online, to connecting them with mentors and fellowships — these “non-monetary investments” can bridge the gap until traditional funding becomes viable.
+ Attendees will leave with concrete ideas for how they — as individuals, organisations, or communities — can sustain the pipeline of emerging projects, ensuring the long-term resilience of open source.
+ If we want an open, thriving, and continuously renewing FOSS ecosystem, we need to get better at nurturing the eggs, not just celebrating the chickens.
+X-ALT-DESC:<p>Every successful open source project starts small, but not every small project gets the chance to succeed. Here’s the paradox: funders prefer to back proven impact, yet impact requires early support. If new initiatives can’t access resources until they already “look successful,” we risk starving the very ecosystem that keeps open source innovative and diverse.</p>
+ <p>This talk explores this chicken-and-egg dilemma and proposes ways to flip the script. What would it look like if we invested not only in impact already proven, but also in potential?</p>
+ <p>Drawing from my experience building <a href="https://www.linkedin.com/company/pre-seeds-research-101/">Pre-Seeds: Research 101</a>, I’ll share insights into the struggles early-stage projects face (e.g., limited visibility, lack of credibility, and difficulty accessing networks). I'll also highlight the kinds of support that make a difference, sharing lessons on how these projects can be supported beyond grants. From spotlighting them on community stages and amplifying their voice online, to connecting them with mentors and fellowships — these “non-monetary investments” can bridge the gap until traditional funding becomes viable.</p>
+ <p>Attendees will leave with concrete ideas for how they — as individuals, organisations, or communities — can sustain the pipeline of emerging projects, ensuring the long-term resilience of open source.</p>
+ <p>If we want an open, thriving, and continuously renewing FOSS ecosystem, we need to get better at nurturing the eggs, not just celebrating the chickens.</p>
+CLASS:PUBLIC
+URL:https://fosdem.org/2026/schedule/event/UHDG9Z-who_funds_the_egg_cracking_the_foss_funding_paradox/
+LOCATION:Janson
+ATTENDEE;CUTYPE=INDIVIDUAL;ROLE=CHAIR;PARTSTAT=ACCEPTED;CN="Deborah Udoh":https://fosdem.org/2026/schedule/speakers/#Deborah+Udoh
+END:VEVENT
+BEGIN:VEVENT
+UID:7866@2026@be.digitalia.fosdem
+DTSTAMP:20260201T185751Z
+DTSTART:20260201T103000Z
+DTEND:20260201T105500Z
+SUMMARY:Calling JIT-compiled Roto scripts from Rust
+DESCRIPTION:Roto is a statically-typed and compiled scripting language for Rust applications that integrates very tightly with Rust. To achieve that integration, it needs to interface directly with Rust types and functions. Implementing that boundary turned out to be quite tricky! We had many obstacles to overcome, such as Rust providing very few mechanisms for reflection and not providing a stable ABI by default. This talk will explain how Rust-Roto boundary works and the tricks we have to pull along the way. You can expect lots of unsafe code, deep dives into the Rust Reference and coercions from slices to function pointers.
+X-ALT-DESC:<p>Roto is a statically-typed and compiled scripting language for Rust applications that integrates very tightly with Rust. To achieve that integration, it needs to interface directly with Rust types and functions. Implementing that boundary turned out to be quite tricky! We had many obstacles to overcome, such as Rust providing very few mechanisms for reflection and not providing a stable ABI by default. This talk will explain how Rust-Roto boundary works and the tricks we have to pull along the way. You can expect lots of unsafe code, deep dives into the Rust Reference and coercions from slices to function pointers.</p>
+CLASS:PUBLIC
+URL:https://fosdem.org/2026/schedule/event/DS7LFX-rust-roto-calling-jit-compiled-scripts/
+LOCATION:UB2.252A (Lameere)
+ATTENDEE;CUTYPE=INDIVIDUAL;ROLE=CHAIR;PARTSTAT=ACCEPTED;CN="Terts Diepraam":https://fosdem.org/2026/schedule/speakers/#Terts+Diepraam
+END:VEVENT
+BEGIN:VEVENT
+UID:8794@2026@be.digitalia.fosdem
+DTSTAMP:20260201T185751Z
+DTSTART:20260201T105000Z
+DTEND:20260201T113000Z
+SUMMARY:How to Reliably Measure Software Performance
+DESCRIPTION:Reliable performance measurement remains an unsolved problem across most open source projects. Benchmarks are often an afterthought, and when they aren't they can be noisy, non-repeatable, and hard to act on.
+ This talk shares lessons learned from building a large-scale benchmarking system at Datadog and shows how small fixes can make a big difference: controlling environmental noise, designing benchmarks, interpreting results with sound statistical methods, and more.
+ Attendees should leave with practical principles they can apply in their own projects to make benchmarks trustworthy and actionable. We'll illustrate each principle with real data — for instance, environment tuning that cut variance by 100x, or design changes that turned a flaky benchmark into a reliable one.
+X-ALT-DESC:<p>Reliable performance measurement remains an unsolved problem across most open source projects. Benchmarks are often an afterthought, and when they aren't they can be noisy, non-repeatable, and hard to act on.</p>
+ <p>This talk shares lessons learned from building a large-scale benchmarking system at Datadog and shows how small fixes can make a big difference: controlling environmental noise, designing benchmarks, interpreting results with sound statistical methods, and more.</p>
+ <p>Attendees should leave with practical principles they can apply in their own projects to make benchmarks trustworthy and actionable. We'll illustrate each principle with real data — for instance, environment tuning that cut variance by 100x, or design changes that turned a flaky benchmark into a reliable one.</p>
+CLASS:PUBLIC
+URL:https://fosdem.org/2026/schedule/event/8AS3XD-how-to-reliably-measure-software-performance/
+LOCATION:H.1301 (Cornil)
+ATTENDEE;CUTYPE=INDIVIDUAL;ROLE=CHAIR;PARTSTAT=ACCEPTED;CN="Kemal Akkoyun":https://fosdem.org/2026/schedule/speakers/#Kemal+Akkoyun
+ATTENDEE;CUTYPE=INDIVIDUAL;ROLE=CHAIR;PARTSTAT=ACCEPTED;CN="Augusto de Oliveira":https://fosdem.org/2026/schedule/speakers/#Augusto+de+Oliveira
+END:VEVENT
+BEGIN:VEVENT
+UID:7810@2026@be.digitalia.fosdem
+DTSTAMP:20260201T185751Z
+DTSTART:20260201T110000Z
+DTEND:20260201T112500Z
+SUMMARY:Fear and Loathing in the App Stores: when FLOSS principles collide with the Gatekeeper interests
+DESCRIPTION:The promise of smartphones was freedom in your pocket. The reality? Two corporate gatekeepers controlling what software billions of users can run on devices they supposedly own. This talk examines the uncomfortable compromises FLOSS developers face when trying to distribute apps through iOS and Android app stores, where every principle we hold dear—user freedom, privacy, transparency, and community control—runs headlong into the profit-driven interests of the global mobile duopoly.
+ We'll explore the battleground where free software principles meet platform restrictions: mandatory code signing that undermines reproducible builds, opaque review processes that can arbitrarily reject apps exercising user freedom, 30% revenue cuts that punish sustainable FLOSS funding models, and Terms of Service that can revoke your ability to distribute software overnight. The Digital Markets Act promised to open these walled gardens, but has it? Or have we merely traded one gatekeeper's rules for slightly different ones?
+ This isn't just about technical hurdles—it's about fundamental questions. Should FLOSS projects compromise on GPL compliance to reach users? Is it ethical to pay fees and developer taxes when that money funds the very infrastructure restricting user freedom? When F-Droid and alternative app stores offer true freedom but reach only 2% of users, do we accept the compromise or maintain ideological purity while our potential impact dwindles?
+ The stakes are existential. As our digital lives increasingly occur on locked-down mobile devices, FLOSS becomes the last line of defense against surveillance capitalism, planned obsolescence, and the erosion of user agency. If we can't effectively distribute free software on the platforms where users actually are, we risk relegating FLOSS to irrelevance precisely when it's needed most.
+ But there's hope. New regulatory frameworks, emerging alternative stores, advances in progressive web apps, and creative technical solutions offer paths forward. We'll discuss practical strategies for maximizing reach while minimizing compromise, building communities that value freedom over convenience, and preparing for a post-duopoly future.
+ This talk will challenge both the compromisers and the purists, asking uncomfortable questions: Are we collaborating with platforms that fundamentally oppose our values? Or are we pragmatically meeting users where they are? The answer may determine whether free software thrives or withers in the mobile era.
+X-ALT-DESC:<p>The promise of smartphones was freedom in your pocket. The reality? Two corporate gatekeepers controlling what software billions of users can run on devices they supposedly own. This talk examines the uncomfortable compromises FLOSS developers face when trying to distribute apps through iOS and Android app stores, where every principle we hold dear—user freedom, privacy, transparency, and community control—runs headlong into the profit-driven interests of the global mobile duopoly.</p>
+ <p>We'll explore the battleground where free software principles meet platform restrictions: mandatory code signing that undermines reproducible builds, opaque review processes that can arbitrarily reject apps exercising user freedom, 30% revenue cuts that punish sustainable FLOSS funding models, and Terms of Service that can revoke your ability to distribute software overnight. The Digital Markets Act promised to open these walled gardens, but has it? Or have we merely traded one gatekeeper's rules for slightly different ones?</p>
+ <p>This isn't just about technical hurdles—it's about fundamental questions. Should FLOSS projects compromise on GPL compliance to reach users? Is it ethical to pay fees and developer taxes when that money funds the very infrastructure restricting user freedom? When F-Droid and alternative app stores offer true freedom but reach only 2% of users, do we accept the compromise or maintain ideological purity while our potential impact dwindles?</p>
+ <p>The stakes are existential. As our digital lives increasingly occur on locked-down mobile devices, FLOSS becomes the last line of defense against surveillance capitalism, planned obsolescence, and the erosion of user agency. If we can't effectively distribute free software on the platforms where users actually are, we risk relegating FLOSS to irrelevance precisely when it's needed most.</p>
+ <p>But there's hope. New regulatory frameworks, emerging alternative stores, advances in progressive web apps, and creative technical solutions offer paths forward. We'll discuss practical strategies for maximizing reach while minimizing compromise, building communities that value freedom over convenience, and preparing for a post-duopoly future.</p>
+ <p>This talk will challenge both the compromisers and the purists, asking uncomfortable questions: Are we collaborating with platforms that fundamentally oppose our values? Or are we pragmatically meeting users where they are? The answer may determine whether free software thrives or withers in the mobile era.</p>
+CLASS:PUBLIC
+URL:https://fosdem.org/2026/schedule/event/TYZH97-fear-loathing-app-stores/
+LOCATION:K.1.105 (La Fontaine)
+ATTENDEE;CUTYPE=INDIVIDUAL;ROLE=CHAIR;PARTSTAT=ACCEPTED;CN="Marc Prud'hommeaux":https://fosdem.org/2026/schedule/speakers/#Marc+Prud%27hommeaux
+END:VEVENT
+BEGIN:VEVENT
+UID:7855@2026@be.digitalia.fosdem
+DTSTAMP:20260201T185751Z
+DTSTART:20260201T110000Z
+DTEND:20260201T115000Z
+SUMMARY:Building the next generation of open source contributors – Lessons from 30 years of Postgres
+DESCRIPTION:How do we find and nurture the next generation of open source contributors? Unlike commercial companies, open source projects don’t have legions of recruiters to bring people into the fold—and yet our projects need a steady stream of new contributors. Or should open source projects assume that new contributors (and future committers) will continue to “self-select” onto the project?
+ The PostgreSQL open source project turns 30 in 2026 (Happy Birthday!). It has evolved from a small project that some referred to as “just a toy”—to today, where Postgres is thriving with an active community and a vast ecosystem of extensions and tooling. The project has clearly done some things right. Postgres is hugely popular, with a healthy upstream open source community plus a host of companies and products built around Postgres itself.
+ And Postgres is owned by no one company; instead, a multitude of competing interests align as people from different countries and continents roll up their sleeves to get the work done. But what happens when the current generation of Postgres committers step back or retire—where will the next generation of Postgres contributors come from?
+ Postgres isn’t special in needing new contributors. It just happens to be a 30-year-old project whose successes, experiments, and failures might apply to other communities too. In this talk, we’ll look at how contributors find their way into Postgres: what worked, what didn’t, and where we’re still struggling. And having the conversation at FOSDEM will help us think together about a challenge common to all of us—how successful open source projects need to evolve as they get older.
+X-ALT-DESC:<p>How do we find and nurture the next generation of open source contributors? Unlike commercial companies, open source projects don’t have legions of recruiters to bring people into the fold—and yet our projects need a steady stream of new contributors. Or should open source projects assume that new contributors (and future committers) will continue to “self-select” onto the project? </p>
+ <p>The <a href="https://www.postgresql.org/">PostgreSQL open source project</a> turns 30 in 2026 (Happy Birthday!). It has evolved from a small project that some referred to as “just a toy”—to today, where Postgres is thriving with an active community and a vast ecosystem of extensions and tooling. The project has clearly done some things right. Postgres is hugely popular, with a healthy upstream open source community plus a host of companies and products built around Postgres itself. </p>
+ <p>And Postgres is owned by no one company; instead, a multitude of competing interests align as people from different countries and continents roll up their sleeves to get the work done. But what happens when the current generation of Postgres committers step back or retire—where will the next generation of Postgres contributors come from? </p>
+ <p>Postgres isn’t special in needing new contributors. It just happens to be a 30-year-old project whose successes, experiments, and failures might apply to other communities too. In this talk, we’ll look at how contributors find their way into Postgres: what worked, what didn’t, and where we’re still struggling. And having the conversation at FOSDEM will help us think together about a challenge common to all of us—how successful open source projects need to evolve as they get older.</p>
+CLASS:PUBLIC
+URL:https://fosdem.org/2026/schedule/event/JDZXFE-next-generation-contributors-lessons-from-postgres/
+LOCATION:Janson
+ATTENDEE;CUTYPE=INDIVIDUAL;ROLE=CHAIR;PARTSTAT=ACCEPTED;CN="Claire Giordano":https://fosdem.org/2026/schedule/speakers/#Claire+Giordano
+END:VEVENT
+BEGIN:VEVENT
+UID:8476@2026@be.digitalia.fosdem
+DTSTAMP:20260201T185751Z
+DTSTART:20260201T110000Z
+DTEND:20260201T112500Z
+SUMMARY:Clickhouse’s C++ and Rust journey
+DESCRIPTION:Full rewrite from C++ to Rust or gradual integration with Rust libraries? For a large C++ codebase, only the latter works, but even then, there are many complications and rough edges. In my presentation, I will describe our experience integrating Rust and C++ code and some weird and unusual problems we had to overcome.
+X-ALT-DESC:<p>Full rewrite from C++ to Rust or gradual integration with Rust libraries? For a large C++ codebase, only the latter works, but even then, there are many complications and rough edges. In my presentation, I will describe our experience integrating Rust and C++ code and some weird and unusual problems we had to overcome.</p>
+CLASS:PUBLIC
+URL:https://fosdem.org/2026/schedule/event/NBLNRY-rust-clickhouse/
+LOCATION:UB2.252A (Lameere)
+ATTENDEE;CUTYPE=INDIVIDUAL;ROLE=CHAIR;PARTSTAT=ACCEPTED;CN="Alexey Milovidov":https://fosdem.org/2026/schedule/speakers/#Alexey+Milovidov
+END:VEVENT
+BEGIN:VEVENT
+UID:7398@2026@be.digitalia.fosdem
+DTSTAMP:20260201T185751Z
+DTSTART:20260201T113000Z
+DTEND:20260201T115500Z
+SUMMARY:DNS: A Love Affair with Lovecraftian Horrors
+DESCRIPTION:The DNS is a hoary protocol, with ancient secrets that man was not meant to know.
+ It is said that learning too much about the dark corners of this ancient knowledge might drive one mad.
+ Here is your chance to learn mostly useless things about DNS!
+ This presentation will cover quirks of the DNS protocol which are probably surprising, and hopefully interesting.
+ Warning: Due to constraints no entities from beyond time and space will be summoned during this talk.
+X-ALT-DESC:<p>The DNS is a hoary protocol, with ancient secrets that man was not meant to know.</p>
+ <p>It is said that learning too much about the dark corners of this ancient knowledge might drive one mad.</p>
+ <p>Here is your chance to learn mostly useless things about DNS!</p>
+ <p>This presentation will cover quirks of the DNS protocol which are probably surprising, and hopefully interesting.</p>
+ <p>Warning: Due to constraints no entities from beyond time and space will be summoned during this talk.</p>
+CLASS:PUBLIC
+URL:https://fosdem.org/2026/schedule/event/SSXDBS-dns_a_love_affair_with_lovecraftian_horrors/
+LOCATION:K.3.401
+ATTENDEE;CUTYPE=INDIVIDUAL;ROLE=CHAIR;PARTSTAT=ACCEPTED;CN="Shane Kerr (he/him)":https://fosdem.org/2026/schedule/speakers/#Shane+Kerr+%28he%2Fhim%29
+END:VEVENT
+BEGIN:VEVENT
+UID:8448@2026@be.digitalia.fosdem
+DTSTAMP:20260201T185751Z
+DTSTART:20260201T113000Z
+DTEND:20260201T121000Z
+SUMMARY:Pulling 100k revisions 100× faster
+DESCRIPTION:Mercurial is a distributed version control system whose codebase combines Python, C and Rust. Over its twenty years of development, significant effort has been put into its scaling and overall performance.
+ In the recent 7.2 version, the performance of exchanging data between repositories (e.g. push and pull) has been significantly improved, with some of our most complicated benchmark cases moving from almost four hours down to 2 minutes, a speedup of over 100x.
+ This talk uses this work as a case study of the multiple places where performance improvements lie. It goes over the challenges that arise from exchanging data in a DVCS, and the levers we can pull to overcome them: higher level logic changes, lower level algorithmic improvements, programming language strengths, modern CPU architecture, network protocol design, etc.
+ Despite the great results, exchanging data in version control remains a complex matter, and we lastly expose our ideas to further tackle its inherent complexity.
+X-ALT-DESC:<p><a href="https://www.mercurial-scm.org/">Mercurial</a> is a distributed version control system whose codebase combines Python, C and Rust. Over its twenty years of development, significant effort has been put into its scaling and overall performance.</p>
+ <p>In the recent 7.2 version, the performance of exchanging data between repositories (e.g. <code>push</code> and <code>pull</code>) has been significantly improved, with some of our most complicated benchmark cases moving from almost four hours down to 2 minutes, a speedup of over 100x.</p>
+ <p>This talk uses this work as a case study of the multiple places where performance improvements lie.
+ It goes over the challenges that arise from exchanging data in a DVCS, and the levers we can pull to overcome them: higher level logic changes, lower level algorithmic improvements, programming language strengths, modern CPU architecture, network protocol design, etc.</p>
+ <p>Despite the great results, exchanging data in version control remains a complex matter, and we lastly expose our ideas to further tackle its inherent complexity.</p>
+CLASS:PUBLIC
+URL:https://fosdem.org/2026/schedule/event/77QF9T-hg-100x/
+LOCATION:H.1301 (Cornil)
+ATTENDEE;CUTYPE=INDIVIDUAL;ROLE=CHAIR;PARTSTAT=ACCEPTED;CN="Raphaël Gomès":https://fosdem.org/2026/schedule/speakers/#Rapha%C3%ABl+Gom%C3%A8s
+ATTENDEE;CUTYPE=INDIVIDUAL;ROLE=CHAIR;PARTSTAT=ACCEPTED;CN="Pierre-Yves David":https://fosdem.org/2026/schedule/speakers/#Pierre-Yves+David
+END:VEVENT
+BEGIN:VEVENT
+UID:9244@2026@be.digitalia.fosdem
+DTSTAMP:20260201T185751Z
+DTSTART:20260201T113000Z
+DTEND:20260201T115500Z
+SUMMARY:Profiling Rust applications with Parca
+DESCRIPTION:This talk introduces Parca, a general-purpose CPU, GPU and memory profiler for Linux. The main unique feature of Parca is the fact that unwinding happens in an eBPF program, and so is low-overhead enough to be constantly running in production: it doesn't require building with frame pointers or copying large sections of the stack between memory spaces. The primary mode of visualization in the Parca UI is the flame graph.
+ Rust-specific features in Parca include:
+ (1) For those projects that use jemalloc, memory profiling via rust-jemalloc-pprof (2) "Custom labels" feature for associating arbitrary application-relevant tags with stack traces (for example: allowing the user to filter profiles by trace ID or any other value they choose to instrument).
+X-ALT-DESC:<p>This talk introduces <a href="parca.dev">Parca</a>, a general-purpose CPU, GPU and memory profiler for Linux. The main unique feature of Parca is the fact that unwinding happens in an eBPF program, and so is low-overhead enough to be constantly running in production: it doesn't require building with frame pointers or copying large sections of the stack between memory spaces. The primary mode of visualization in the Parca UI is the flame graph.</p>
+ <p>Rust-specific features in Parca include:</p>
+ <p>(1) For those projects that use jemalloc, memory profiling via <a href="https://github.com/polarsignals/rust-jemalloc-pprof">rust-jemalloc-pprof</a>
+ (2) "Custom labels" feature for associating arbitrary application-relevant tags with stack traces (for example: allowing the user to filter profiles by trace ID or any other value they choose to instrument).</p>
+CLASS:PUBLIC
+URL:https://fosdem.org/2026/schedule/event/YVALSG-rust-profiling-with-parca/
+LOCATION:UB2.252A (Lameere)
+ATTENDEE;CUTYPE=INDIVIDUAL;ROLE=CHAIR;PARTSTAT=ACCEPTED;CN="Brennan Vincent":https://fosdem.org/2026/schedule/speakers/#Brennan+Vincent
+END:VEVENT
+BEGIN:VEVENT
+UID:7708@2026@be.digitalia.fosdem
+DTSTAMP:20260201T185751Z
+DTSTART:20260201T120000Z
+DTEND:20260201T122500Z
+SUMMARY:Building performance-critical Python tools with Rust: Lessons from production
+DESCRIPTION:Python dominates web development, but they often comes with performance and scaling issues. Recently, the Python ecosystem has seen massive performance gains from projects written in Rust, such as uv and ruff. But what other projects are out there to help Python scale thanks to Rust? At Cloudsmith, we achieved 2x throughput on our 10-year-old Django monolith by integrating Rust-based tools and contributed features back upstream
+ We'll look at a number of projects that helped us start bringing Rust into our stack. We'll go over our methodology: establishing performance baselines through load testing, identifying bottlenecks, and scaling issues. We integrated existing Rust-based tools with minimal code changes and tuned application server configuration for maximum throughput, consolidating infrastructure and reducing operational complexity.
+ We'll also share our experience contributing observability features upstream to Granian, ensuring production-ready monitoring that benefits the entire community.
+ You'll leave with actionable strategies for modernising legacy services using existing Rust tools, understanding when this approach makes sense, and maintaining production reliability throughout the transition.
+X-ALT-DESC:<p>Python dominates web development, but they often comes with performance and
+ scaling issues. Recently, the Python ecosystem has seen massive performance gains
+ from projects written in Rust, such as <code>uv</code> and <code>ruff</code>. But what other projects
+ are out there to help Python scale thanks to Rust? At Cloudsmith, we achieved 2x
+ throughput on our 10-year-old Django monolith by integrating Rust-based tools and
+ contributed features back upstream</p>
+ <p>We'll look at a number of projects that helped us start bringing Rust into our
+ stack. We'll go over our methodology: establishing performance baselines through
+ load testing, identifying bottlenecks, and scaling issues. We integrated existing
+ Rust-based tools with minimal code changes and tuned application server
+ configuration for maximum throughput, consolidating infrastructure and reducing
+ operational complexity.</p>
+ <p>We'll also share our experience contributing observability features upstream to
+ Granian, ensuring production-ready monitoring that benefits the entire
+ community.</p>
+ <p>You'll leave with actionable strategies for modernising legacy services using
+ existing Rust tools, understanding when this approach makes sense, and
+ maintaining production reliability throughout the transition.</p>
+CLASS:PUBLIC
+URL:https://fosdem.org/2026/schedule/event/RCFALN-rust-building-performance-critical-python-apps/
+LOCATION:UB2.252A (Lameere)
+ATTENDEE;CUTYPE=INDIVIDUAL;ROLE=CHAIR;PARTSTAT=ACCEPTED;CN="Cian Butler":https://fosdem.org/2026/schedule/speakers/#Cian+Butler
+END:VEVENT
+BEGIN:VEVENT
+UID:8370@2026@be.digitalia.fosdem
+DTSTAMP:20260201T185751Z
+DTSTART:20260201T123000Z
+DTEND:20260201T125500Z
+SUMMARY:Ty: Adventures of type-checking Python in Rust
+DESCRIPTION:Ty is a fast Python type checker and language server. Ty is built with Rust, and there are a lot of interesting technical challenges involved in making it a useful tool.
+ Building a Python type checker is a hard task; however, the design of Ty provides a joyful developer experience for contributors. In this talk, we will look at how the Ty codebase is structured to make development simple, and what design choices make it pleasant to work on.
+ We will cover:
+ How Ty goes from a Python program to a diagnostic, and what parts are most important if you want to contribute.
+ Data layout and ownership model of structs in Rust.
+ Salsa solves challenge of incremental type checking across many files.
+ Tooling for tests, snapshot testing during development and type checking open source projects in CI.
+X-ALT-DESC:<p><a href="https://docs.astral.sh/ty/">Ty</a> is a fast Python type checker and language server. Ty is built with Rust, and there are a lot of interesting technical challenges involved in making it a useful tool.</p>
+ <p>Building a Python type checker is a hard task; however, the design of Ty provides a joyful developer experience for contributors. In this talk, we will look at how the Ty codebase is structured to make development simple, and what design choices make it pleasant to work on.</p>
+ <p>We will cover:</p>
+ <ul>
+ <li>
+ <p>How Ty goes from a Python program to a diagnostic, and what parts are most important if you want to contribute.</p>
+ </li>
+ <li>
+ <p>Data layout and ownership model of structs in Rust.</p>
+ </li>
+ <li>
+ <p>Salsa solves challenge of incremental type checking across many files.</p>
+ </li>
+ <li>
+ <p>Tooling for tests, snapshot testing during development and type checking open source projects in CI.</p>
+ </li>
+ </ul>
+CLASS:PUBLIC
+URL:https://fosdem.org/2026/schedule/event/GWRDNT-rust-type-checking-python/
+LOCATION:UB2.252A (Lameere)
+ATTENDEE;CUTYPE=INDIVIDUAL;ROLE=CHAIR;PARTSTAT=ACCEPTED;CN="Shaygan Hooshyari":https://fosdem.org/2026/schedule/speakers/#Shaygan+Hooshyari
+END:VEVENT
+BEGIN:VEVENT
+UID:8596@2026@be.digitalia.fosdem
+DTSTAMP:20260201T185751Z
+DTSTART:20260201T125000Z
+DTEND:20260201T133000Z
+SUMMARY:Continuous Performance Engineering HowTo
+DESCRIPTION:In the past 30 years we've moved from manual QA testing of release candidates to Continuous Integration and even Continuous Deployment. But while most software projects excel at testing correctness, the level of automation of performance testing is still near zero. And while it's a given that each developer writes tests for their own code, Performance Engineering remains the domain of individual experts or separate teams, who benchmark the product with custom tools developed in house, often focusing on beta and release candidates, with zero performance tests happening in the Continuous Integration work stream.
+ This talk is your guide to Continuous Performance Engineering, aka Continuous Benchmarking. We will cover standard benchmarking frameworks and how to automate them in CI, automating deployments of large end-to-end environments, how to tune your infrastructure for minimum noise and maximum repeatability, and using change point detection to automatically alert on performance regressions with a minimal amount of those annoying false positives.
+X-ALT-DESC:<p>In the past 30 years we've moved from manual QA testing of release candidates to Continuous Integration and even Continuous Deployment. But while most software projects excel at testing correctness, the level of automation of performance testing is still near zero. And while it's a given that each developer writes tests for their own code, Performance Engineering remains the domain of individual experts or separate teams, who benchmark the product with custom tools developed in house, often focusing on beta and release candidates, with zero performance tests happening in the Continuous Integration work stream.</p>
+ <p>This talk is your guide to Continuous Performance Engineering, aka Continuous Benchmarking.  We will cover standard benchmarking frameworks and how to automate them in CI, automating deployments of large end-to-end environments, how to tune your infrastructure for minimum noise and maximum repeatability, and using change point detection to automatically alert on performance regressions with a minimal amount of those annoying false positives.</p>
+CLASS:PUBLIC
+URL:https://fosdem.org/2026/schedule/event/YNB7KR-continuous-perf-engineering/
+LOCATION:H.1301 (Cornil)
+ATTENDEE;CUTYPE=INDIVIDUAL;ROLE=CHAIR;PARTSTAT=ACCEPTED;CN="Henrik Ingo":https://fosdem.org/2026/schedule/speakers/#Henrik+Ingo
+END:VEVENT
+BEGIN:VEVENT
+UID:7729@2026@be.digitalia.fosdem
+DTSTAMP:20260201T185751Z
+DTSTART:20260201T133000Z
+DTEND:20260201T135500Z
+SUMMARY:Taming Git complexity with Rust and Gitoxide
+DESCRIPTION:Git's internal design is both elegant and notoriously complex. Building reliable tooling on top of it means dealing with purpose-built data structures, performance trade-offs, and years of historical quirks.
+ In this talk, we’ll explore how Rust, together with Gitoxide[0], makes it possible to create fast, correct, and ergonomic version-control tooling. We’ll look at how Rust’s ownership model and type system help avoid whole classes of errors, and how Gitoxide exposes a safe and composable interface to the raw Git data structures.
+ Using some real-world examples, we’ll walk through: - How Git stores its data and why interacting with it is non-trivial - How the Gitoxide APIs to make this tractable - Patterns for building high-level Git workflows - A short demo of how these pieces come together in the GitButler CLI
+ Attendees will come away with a deeper understanding of Git’s inner workings, practical insights into using Gitoxide, and perhaps ideas for creating next-gen developer tooling using Rust.
+ [0] https://github.com/GitoxideLabs/gitoxide
+X-ALT-DESC:<p>Git's internal design is both elegant and notoriously complex. Building reliable tooling on top of it means dealing with purpose-built data structures, performance trade-offs, and years of historical quirks.</p>
+ <p>In this talk, we’ll explore how Rust, together with Gitoxide[0], makes it possible to create fast, correct, and ergonomic version-control tooling. We’ll look at how Rust’s ownership model and type system help avoid whole classes of errors, and how Gitoxide exposes a safe and composable interface to the raw Git data structures.</p>
+ <p>Using some real-world examples, we’ll walk through:
+ - How Git stores its data and why interacting with it is non-trivial
+ - How the Gitoxide APIs to make this tractable
+ - Patterns for building high-level Git workflows
+ - A short demo of how these pieces come together in the GitButler CLI</p>
+ <p>Attendees will come away with a deeper understanding of Git’s inner workings, practical insights into using Gitoxide, and perhaps ideas for creating next-gen developer tooling using Rust.</p>
+ <p>[0] https://github.com/GitoxideLabs/gitoxide</p>
+CLASS:PUBLIC
+URL:https://fosdem.org/2026/schedule/event/EQAECR-rust-gitoxide/
+LOCATION:UB2.252A (Lameere)
+ATTENDEE;CUTYPE=INDIVIDUAL;ROLE=CHAIR;PARTSTAT=ACCEPTED;CN="Kiril Videlov":https://fosdem.org/2026/schedule/speakers/#Kiril+Videlov
+END:VEVENT
+BEGIN:VEVENT
+UID:9865@2026@be.digitalia.fosdem
+DTSTAMP:20260201T185751Z
+DTSTART:20260201T134000Z
+DTEND:20260201T135500Z
+SUMMARY:git blame for your dependencies
+DESCRIPTION:Your lockfile shows what dependencies you have but not how you got there. git log on a lockfile is useless noise. Who added left-pad? When did we pick up that transitive dependency? Why do we have three JSON libraries?
+ git-pkgs is a git subcommand that indexes your dependency history into a SQLite database. It parses manifests across 30+ ecosystems (Gemfile, package.json, Dockerfile, GitHub Actions etc) and tracks every add, update, and removal with full commit attribution. Query when any dependency arrived, who added it, and what the commit message said. You can even diff dependencies across branches.
+ I'll demo the tool and show how a simple schema lets you answer questions your package manager can't.
+X-ALT-DESC:<p>Your lockfile shows what dependencies you have but not how you got there. git log on a lockfile is useless noise. Who added left-pad? When did we pick up that transitive dependency? Why do we have three JSON libraries?</p>
+ <p><a href="https://github.com/git-pkgs/git-pkgs">git-pkgs</a> is a git subcommand that indexes your dependency history into a SQLite database. It parses manifests across 30+ ecosystems (Gemfile, package.json, Dockerfile, GitHub Actions etc) and tracks every add, update, and removal with full commit attribution. Query when any dependency arrived, who added it, and what the commit message said. You can even diff dependencies across branches.</p>
+ <p>I'll demo the tool and show how a simple schema lets you answer questions your package manager can't.</p>
+CLASS:PUBLIC
+URL:https://fosdem.org/2026/schedule/event/E7BQKK-git_blame_for_your_dependencies/
+LOCATION:H.2215 (Ferrer)
+ATTENDEE;CUTYPE=INDIVIDUAL;ROLE=CHAIR;PARTSTAT=ACCEPTED;CN="Andrew Nesbitt":https://fosdem.org/2026/schedule/speakers/#Andrew+Nesbitt
+END:VEVENT
+BEGIN:VEVENT
+UID:7314@2026@be.digitalia.fosdem
+DTSTAMP:20260201T185751Z
+DTSTART:20260201T140000Z
+DTEND:20260201T145000Z
+SUMMARY:The Hacker Folk Art of Esoteric Code
+DESCRIPTION:Over the past twenty years, I've written about esolangs as a hacker folk art for the blog esoteric.codes, bringing the voice of many esolangers together, to find crossover in their approach to computation as a medium. Meanwhile, I've produced esolangs of my own, recently brought together by MIT Press in Forty-Four Esolangs.
+ This talk brings together both projects, to show the potential of this hacker folk art to go far beyond the listicles of puzzle languages and joke languages with which it is often associated. Its languages ask programmers to write code as a series of photographs, or by two programmers typing in tandem, or using global variables that are global across the world. It presents esolangs as challenges to conventional ideas about code: everything from "the cognitive gap between the text and performance of code should be as small possible" to "languages should lead to runnable programs" or even "code should be written with intent."
+ This talk emphasizes esolangs as a community form built on dialogue between esolangers and the esoprogrammers who explore their ideas and find the limits of their languages. I hope to inspire more programmers to recognize esolangs as our own space of play and embrace it as an experimental medium. In this moment, when AI tools help reinforce a particular, corporatized vision of how code should look, esolangs offer resistance to this monostyle and against the de-skilling of programming as art.
+X-ALT-DESC:<p>Over the past twenty years, I've written about esolangs as a hacker folk art for the blog esoteric.codes, bringing the voice of many esolangers together, to find crossover in their approach to computation as a medium. Meanwhile, I've produced esolangs of my own, recently brought together by MIT Press in Forty-Four Esolangs. </p>
+ <p>This talk brings together both projects, to show the potential of this hacker folk art to go far beyond the listicles of puzzle languages and joke languages with which it is often associated. Its languages ask programmers to write code as a series of photographs, or by two programmers typing in tandem, or using global variables that are global across the world. It presents esolangs as challenges to conventional ideas about code: everything from "the cognitive gap between the text and performance  of code should be as small possible" to "languages should lead to runnable programs" or even "code should be written with intent."</p>
+ <p>This talk emphasizes esolangs as a community form built on dialogue between esolangers and the esoprogrammers who explore their ideas and find the limits of their languages. I hope to inspire more programmers to recognize esolangs as our own space of play and embrace it as an experimental medium. In this moment, when AI tools help reinforce a particular, corporatized vision of how code should look, esolangs offer resistance to this monostyle and against the de-skilling of programming as art.</p>
+CLASS:PUBLIC
+URL:https://fosdem.org/2026/schedule/event/KX9P7J-art-of-esoteric-code/
+LOCATION:Janson
+ATTENDEE;CUTYPE=INDIVIDUAL;ROLE=CHAIR;PARTSTAT=ACCEPTED;CN="Daniel Temkin":https://fosdem.org/2026/schedule/speakers/#Daniel+Temkin
+END:VEVENT
+BEGIN:VEVENT
+UID:9040@2026@be.digitalia.fosdem
+DTSTAMP:20260201T185751Z
+DTSTART:20260201T140000Z
+DTEND:20260201T142500Z
+SUMMARY:Rust Coreutils in Ubuntu: Yes, we rewrote /bin/true in Rust — Here’s what really happened
+DESCRIPTION:Ubuntu’s plan to “carefully but purposefully oxidise” the distro has given us the perfect playground to see what really happens when you swap decades-old GNU coreutils for their shiny Rust equivalents. Spoiler: everything relies on way more weird flags than you think — and significantly more than the internet’s finest armchair kernel engineers believe.
+ In this talk, I’ll share the fun, the sharp edges, and the truly unexpected lessons from bringing Rust Coreutils (https://github.com/uutils/coreutils ) into Ubuntu: which obscure behaviours scripts secretly depend on, how packaging Essential tools can turn one missing corner-case into a boot failure, what benchmarks actually taught us (as opposed to what Reddit said they would), and how tools like oxidizr (https://github.com/jnsgruk/oxidizr ) let us safely flip between GNU and Rust without breaking the universe.
+ Along the way, we’ll look at some of the best online troll predictions — the “Rust will destroy Linux”, “this is rewriting for the sake of CVs”, and “it will be 100× slower forever” genre — and compare them with what happened in the real world. Some were wrong, some were surprisingly insightful, and some were… educational, in their own way.
+ If you’re curious about modernizing the Linux system, if you enjoy data-driven myth-busting, or if you simply want field notes from the frontier of “C → Rust” rewrites, this session is for you. Links:
+ Ubuntu “oxidising” initiative: https://discourse.ubuntu.com/t/carefully-but-purposefully-oxidising-ubuntu/56995
+ uutils/coreutils: https://github.com/uutils/coreutils
+X-ALT-DESC:<p>Ubuntu’s plan to “carefully but purposefully oxidise” the distro has given us the perfect playground to see what really happens when you swap decades-old GNU coreutils for their shiny Rust equivalents. Spoiler: everything relies on way more weird flags than you think — and significantly more than the internet’s finest armchair kernel engineers believe.</p>
+ <p>In this talk, I’ll share the fun, the sharp edges, and the truly unexpected lessons from bringing Rust Coreutils (https://github.com/uutils/coreutils
+ ) into Ubuntu: which obscure behaviours scripts secretly depend on, how packaging Essential tools can turn one missing corner-case into a boot failure, what benchmarks actually taught us (as opposed to what Reddit said they would), and how tools like oxidizr (https://github.com/jnsgruk/oxidizr
+ ) let us safely flip between GNU and Rust without breaking the universe.</p>
+ <p>Along the way, we’ll look at some of the best online troll predictions — the “Rust will destroy Linux”, “this is rewriting for the sake of CVs”, and “it will be 100× slower forever” genre — and compare them with what happened in the real world. Some were wrong, some were surprisingly insightful, and some were… educational, in their own way.</p>
+ <p>If you’re curious about modernizing the Linux system, if you enjoy data-driven myth-busting, or if you simply want field notes from the frontier of “C → Rust” rewrites, this session is for you.
+ Links:</p>
+ <p>Ubuntu “oxidising” initiative: https://discourse.ubuntu.com/t/carefully-but-purposefully-oxidising-ubuntu/56995</p>
+ <p>uutils/coreutils: https://github.com/uutils/coreutils</p>
+CLASS:PUBLIC
+URL:https://fosdem.org/2026/schedule/event/DTYYL9-rust-coreutils/
+LOCATION:UB2.252A (Lameere)
+ATTENDEE;CUTYPE=INDIVIDUAL;ROLE=CHAIR;PARTSTAT=ACCEPTED;CN="Sylvestre Ledru":https://fosdem.org/2026/schedule/speakers/#Sylvestre+Ledru
+END:VEVENT
+BEGIN:VEVENT
+UID:9828@2026@be.digitalia.fosdem
+DTSTAMP:20260201T185751Z
+DTSTART:20260201T140000Z
+DTEND:20260201T141500Z
+SUMMARY:Amber Lang - Easily write Bash with a transpiler
+DESCRIPTION:Amber is an experimental programming language that transpiles to Bash, designed to make shell scripting more readable, safer, and easier to maintain. While Bash is ubiquitous, its syntax and error-prone patterns often slow down development, especially for complex scripts. Amber addresses these issues by offering a clearer syntax, basic typing, structured control flow, and a growing standard library, while still producing compatible Bash code (3.2–5.3).
+ Written in Rust and supported by modern tooling such as an LSP and editor plugins, Amber aims to improve the developer experience of writing portable shell scripts without abandoning the Bash ecosystem.
+ Slide link: https://mte90.tech/Talk-Amber/
+X-ALT-DESC:<p>Amber is an experimental programming language that transpiles to Bash, designed to make shell scripting more readable, safer, and easier to maintain. While Bash is ubiquitous, its syntax and error-prone patterns often slow down development, especially for complex scripts. Amber addresses these issues by offering a clearer syntax, basic typing, structured control flow, and a growing standard library, while still producing compatible Bash code (3.2–5.3).<br />
+ Written in Rust and supported by modern tooling such as an LSP and editor plugins, Amber aims to improve the developer experience of writing portable shell scripts without abandoning the Bash ecosystem.</p>
+ <p>Slide link: https://mte90.tech/Talk-Amber/</p>
+CLASS:PUBLIC
+URL:https://fosdem.org/2026/schedule/event/GGLZS9-amber-lang-bash-transpiler/
+LOCATION:H.2215 (Ferrer)
+ATTENDEE;CUTYPE=INDIVIDUAL;ROLE=CHAIR;PARTSTAT=ACCEPTED;CN="Daniele Scasciafratte":https://fosdem.org/2026/schedule/speakers/#Daniele+Scasciafratte
+END:VEVENT
+BEGIN:VEVENT
+UID:8288@2026@be.digitalia.fosdem
+DTSTAMP:20260201T185751Z
+DTSTART:20260201T150000Z
+DTEND:20260201T155000Z
+SUMMARY:Lightning lightning talks 2
+DESCRIPTION:The regular FOSDEM lightning talk track isn't chaotic enough, so this year we're doubling down on Lightning Lightning Talks (now with added lightning!).
+ Thought of a last minute topic you want to share? Got your interesting talk rejected? Has something exciting happened in the last few weeks you want to talk about?
+ Submissions are open, see the news post for details: fosdem.org/2026/news/2026-01-26-lightning-talks
+ This is the second of two sessions for participants to speak about subjects which are interesting, amusing, or just something the FOSDEM audience would appreciate.
+ Selected speakers line up and present in one continuous automated stream, with an SLO of 99% talk uptime.
+ Presenters who attempt to speak for longer than 256 seconds risk being swept off the stage by our Lightning Lightning Talk Cleanup Crew.
+X-ALT-DESC:<p>The regular FOSDEM lightning talk track isn't chaotic enough, so this year we're doubling down on Lightning Lightning Talks (now with added lightning!).</p>
+ <p>Thought of a last minute topic you want to share? Got your interesting talk rejected? Has something exciting happened in the last few weeks you want to talk about?</p>
+ <p><strong>Submissions are open</strong>, see the news post for details: <a href="https://fosdem.org/2026/news/2026-01-26-lightning-talks/">fosdem.org/2026/news/2026-01-26-lightning-talks</a></p>
+ <p>This is the second of two sessions for participants to speak about subjects which are interesting, amusing, or just something the FOSDEM audience would appreciate.</p>
+ <p>Selected speakers line up and present in one continuous automated stream, with an SLO of 99% talk uptime.</p>
+ <p>Presenters who attempt to speak for longer than 256 seconds risk being swept off the stage by our Lightning Lightning Talk Cleanup Crew.</p>
+CLASS:PUBLIC
+URL:https://fosdem.org/2026/schedule/event/G3ZWYU-lightning_lightning_talks_2/
+LOCATION:Janson
+END:VEVENT
+BEGIN:VEVENT
+UID:9997@2026@be.digitalia.fosdem
+DTSTAMP:20260201T185751Z
+DTSTART:20260201T152000Z
+DTEND:20260201T153500Z
+SUMMARY:FOSDEM infrastructure review
+DESCRIPTION:Join us for the traditional FOSDEM infrastructure review.
+X-ALT-DESC:<p>Join us for the traditional FOSDEM infrastructure review.</p>
+CLASS:PUBLIC
+URL:https://fosdem.org/2026/schedule/event/WQ3F9A-fosdem_infrastructure_review/
+LOCATION:H.2215 (Ferrer)
+ATTENDEE;CUTYPE=INDIVIDUAL;ROLE=CHAIR;PARTSTAT=ACCEPTED;CN="FOSDEM Staff":https://fosdem.org/2026/schedule/speakers/#FOSDEM+Staff
+ATTENDEE;CUTYPE=INDIVIDUAL;ROLE=CHAIR;PARTSTAT=ACCEPTED;CN="Richard RichiH Hartmann":https://fosdem.org/2026/schedule/speakers/#Richard+%22RichiH%22+Hartmann
+ATTENDEE;CUTYPE=INDIVIDUAL;ROLE=CHAIR;PARTSTAT=ACCEPTED;CN="Sebastian Schubert":https://fosdem.org/2026/schedule/speakers/#Sebastian+Schubert
+END:VEVENT
+BEGIN:VEVENT
+UID:7772@2026@be.digitalia.fosdem
+DTSTAMP:20260201T185751Z
+DTSTART:20260201T160000Z
+DTEND:20260201T165000Z
+SUMMARY:Open Source Security in spite of AI
+DESCRIPTION:The curl project has been bombarded by large volumes of low quality AI slop security reports and Daniel shows examples. Sloppy humans causing Denial-of-Service attacks by overloading maintainers with quickly produced almost-real-looking rubbish.
+ At the same time, upcoming new AI powered tools find flaws and mistakes in existing code in ways no previous code analyzers have been able to. Daniel names names and shows examples of findings, some that even feels almost human. Next level bug-hunting for sure.
+ AI now simultaneously brings us the worst and the best.
+X-ALT-DESC:<p>The curl project has been bombarded by large volumes of low quality AI slop security reports and Daniel shows examples. Sloppy humans causing Denial-of-Service attacks by overloading maintainers with quickly produced almost-real-looking rubbish.</p>
+ <p>At the same time, upcoming new AI powered tools find flaws and mistakes in existing code in ways no previous code analyzers have been able to. Daniel names names and shows examples of findings, some that even feels almost human. Next level bug-hunting for sure.</p>
+ <p>AI now simultaneously brings us the worst and the best.</p>
+CLASS:PUBLIC
+URL:https://fosdem.org/2026/schedule/event/B7YKQ7-oss-in-spite-of-ai/
+LOCATION:Janson
+ATTENDEE;CUTYPE=INDIVIDUAL;ROLE=CHAIR;PARTSTAT=ACCEPTED;CN="Daniel Stenberg":https://fosdem.org/2026/schedule/speakers/#Daniel+Stenberg
+END:VEVENT
+BEGIN:VEVENT
+UID:8377@2026@be.digitalia.fosdem
+DTSTAMP:20260201T185751Z
+DTSTART:20260201T165000Z
+DTEND:20260201T171500Z
+SUMMARY:Closing FOSDEM 2026
+DESCRIPTION:Some closing words. Don't miss it!
+X-ALT-DESC:<p>Some closing words. Don't miss it!</p>
+CLASS:PUBLIC
+URL:https://fosdem.org/2026/schedule/event/XN9DAW-closing_fosdem_2026/
+LOCATION:Janson
+ATTENDEE;CUTYPE=INDIVIDUAL;ROLE=CHAIR;PARTSTAT=ACCEPTED;CN="FOSDEM Staff":https://fosdem.org/2026/schedule/speakers/#FOSDEM+Staff
+END:VEVENT
+END:VCALENDAR
