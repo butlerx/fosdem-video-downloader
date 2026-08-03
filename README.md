@@ -70,19 +70,16 @@ cargo fmt --check
 
 ## Releases
 
-Pushing a version tag creates a GitHub Release and publishes the matching crate
-to crates.io using [trusted publishing](https://crates.io/docs/trusted-publishing).
+Releases are managed automatically via
+[release-please](https://github.com/googleapis/release-please). When commits
+following [Conventional Commits](https://www.conventionalcommits.org/) are
+pushed to `main`, release-please opens a PR that bumps the version and updates
+`CHANGELOG.md`. Merging that PR triggers a GitHub Release and publishes to
+crates.io using [trusted publishing](https://crates.io/docs/trusted-publishing).
+
 Before the first automated release, publish the crate once manually, then add a
 trusted publisher in its crates.io settings for this repository and
 `.github/workflows/release.yml`.
-
-The tag must use the `vX.Y.Z` form and exactly match the `version` in
-`Cargo.toml`:
-
-```bash
-git tag v0.1.0
-git push origin v0.1.0
-```
 
 ## License
 
