@@ -1,6 +1,6 @@
 [package]
 name        = "fosdem-video-downloader"
-version     = "0.1.0"
+version     = "0.2.0"
 edition     = "2024"
 description = "Download FOSDEM conference videos from an ICS schedule file."
 repository  = "https://github.com/butlerx/fosdem-video-downloader"
