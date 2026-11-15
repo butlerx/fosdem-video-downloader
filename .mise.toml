@@ -3,6 +3,7 @@ rust                   = { version = "stable", profile = "default", components =
 prek                   = "latest"
 tombi                  = "1.11.2"
 zizmor                 = "latest"
+shellcheck             = "latest"
 "cargo:cargo-binstall" = "latest"
 "cargo:cargo-audit"    = "latest"
 "cargo:cargo-nextest"  = "latest"
