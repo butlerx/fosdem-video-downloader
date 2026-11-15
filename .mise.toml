@@ -1,7 +1,7 @@
 [tools]
 rust                   = { version = "stable", profile = "default", components = "rust-analyzer" }
 prek                   = "latest"
-tombi                  = "latest"
+tombi                  = "1.2.5"
 zizmor                 = "latest"
 "cargo:cargo-binstall" = "latest"
 "cargo:cargo-audit"    = "latest"
